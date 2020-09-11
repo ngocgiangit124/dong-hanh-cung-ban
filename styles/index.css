@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: #F3F4F7;
+}
+.plr4 {
+  padding-right: 15px;
+  padding-left: 15px;
+}
