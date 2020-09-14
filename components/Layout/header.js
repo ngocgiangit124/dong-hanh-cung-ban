@@ -6,7 +6,7 @@ export function Header() {
     return (
         <div className={`${HeaderCss.colorfff}`}>
             <div className="container pl-10 pr-10 mx-auto">
-                <div className={`flex items-center justify-between ${HeaderCss.hspec84} `} >
+                <div className={`ml-4 mr-4 flex items-center justify-between ${HeaderCss.hspec84} `} >
                     <div>
                         <img className="" src="../img/logo.png" alt="logo" />
                     </div>
