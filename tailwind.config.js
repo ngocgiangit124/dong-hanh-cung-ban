@@ -14,12 +14,17 @@ module.exports = {
             'lg': '1024px',
             'xl': '1280px',
         },
+        fontFamily: {
+            san: ['Encode Sans Expanded'],
+        },
         extend: {
             backgroundColor: {
                 colorinput: '#F3F4F7',
+
             },
             colors: {
                 cyan: '#9cdbff',
+                color1472BE: '#1472BE'
             },
             spacing: {
                 '96': '24rem',
