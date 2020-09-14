@@ -3,7 +3,7 @@ import React, { memo } from 'react';
 const Menu = memo(() => {
     return (
         <>
-            <div className='w-4/12 bg-white rounded-lg mt-5 p-5'>
+            <div className=' bg-white rounded-lg p-5'>
                 <div className='flex items-center pb-2'>
                     <img src='../img/home.png' className='p-2' />
                     <p className='font-semibold text-xs'>TRANG CHỦ</p>
@@ -31,9 +31,9 @@ const Menu = memo(() => {
             </div >
 
             {/* <div className='w-4/12 bg-white rounded-lg mt-5 p-5'> */}
-            <img src='../img/Aside1.png' className='w-4/12 mt-5 ' />
+            <img src='../img/Aside1.png' className=' mt-5 ' />
             {/* </div> */}
-            <img src='../img/Aside2.png' className='w-4/12 mt-5 ' />
+            <img src='../img/Aside2.png' className=' mt-5 ' />
         </>
     );
 });
