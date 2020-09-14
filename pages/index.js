@@ -5,6 +5,7 @@ import { Header } from '../components/Layout/header'
 import Menu from '../components/Aside/Menu'
 import QaHeader from '../components/Aside/QaHeader'
 import AddPost from '../components/Content/AddPost'
+import ItemPost from '../components/Content/ItemPost'
 export default function Home() {
   return (
     <>
@@ -14,8 +15,9 @@ export default function Home() {
           <div className="col-span-2 ml-4 mr-4">
             <QaHeader />
             <AddPost />
+            <ItemPost />
           </div>
-          <div className="col-span-1 ml-4 mr-4">
+          <div className="col-span-1 ml-4 mr-4 hidden  sm:hidden md:block">
             <Menu />
           </div>
         </div>
