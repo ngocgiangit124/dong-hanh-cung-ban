@@ -29,6 +29,12 @@ module.exports = {
             spacing: {
                 '96': '24rem',
                 '128': '32rem',
+            },
+            width: {
+                'ct23': '23rem',
+            },
+            height: {
+                'ct30': '30rem',
             }
         },
         minWidth: {
@@ -38,6 +44,6 @@ module.exports = {
             '1/2': '50%',
             '3/4': '75%',
             'full': '100%',
-        }
+        },
     }
 }
