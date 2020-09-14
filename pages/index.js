@@ -11,11 +11,12 @@ export default function Home() {
       <Header />
       <Container>
         <div className={`mt-8 grid grid-cols-3`}>
-          <div className="col-span-2 ml-4 mr-4">
+
+          <div className=" col-span-2 ml-4 mr-4">
             <QaHeader />
             <AddPost />
           </div>
-          <div className="col-span-1 ml-4 mr-4">
+          <div className="col-span-1 ml-4 mr-4 hidden md:block sm:hidden">
             <Menu />
           </div>
         </div>
