@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
+@layer components {
+  .active-post {
+    @apply text-blue-700  border-blue-700 border-b-2;
+  }
+}
 body {
   background: #F3F4F7;
 }
@@ -26,6 +33,10 @@ body {
   background: #7EBDF1; 
   border-radius: 10px;
 }
+p {
+  margin-bottom: 8px;
+}
+
 
 /* Handle on hover */
 /* ::-webkit-scrollbar-thumb:hover {

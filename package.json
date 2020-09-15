@@ -8,13 +8,16 @@
     "start": "next start"
   },
   "dependencies": {
+    "@celebryts/react-autocomplete-tags": "^1.0.0",
     "@zeit/next-css": "^1.0.1",
     "next": "^9.5.3",
     "postcss-flexbugs-fixes": "^4.2.1",
     "postcss-preset-env": "^6.7.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "react-rte": "^0.16.3",
     "sass": "^1.26.10",
-    "tailwindcss": "^1.8.5"
+    "tailwind-editor": "0.0.5",
+    "tailwindcss": "^1.8.10"
   }
 }

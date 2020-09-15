@@ -31,11 +31,22 @@ module.exports = {
                 '128': '32rem',
             },
             width: {
+                'ct21': '21rem',
                 'ct23': '23rem',
             },
             height: {
                 'ct30': '30rem',
+            },
+            top: {
+                '1': '1rem',
+                '2': '2rem',
+                '3': '3rem',
+                '4': '4rem',
+            },
+            maxWidth: {
+                '13rem': '13rem'
             }
+
         },
         minWidth: {
             '0': '0',
