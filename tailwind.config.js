@@ -13,6 +13,7 @@ module.exports = {
             'md': '768px',
             'lg': '1024px',
             'xl': '1280px',
+
         },
         fontFamily: {
             san: ['Encode Sans Expanded'],
@@ -20,7 +21,9 @@ module.exports = {
         extend: {
             backgroundColor: {
                 colorinput: '#F3F4F7',
-
+                '#1472BE': '#1472BE',
+                modal1: 'rgb(0,0,0)',
+                modal2: 'rgba(0,0,0,0.5)',
             },
             colors: {
                 cyan: '#9cdbff',
@@ -33,6 +36,8 @@ module.exports = {
             width: {
                 'ct21': '21rem',
                 'ct23': '23rem',
+                '40%': '40%',
+                '90%': '90%'
             },
             height: {
                 'ct30': '30rem',
@@ -44,7 +49,8 @@ module.exports = {
                 '4': '4rem',
             },
             maxWidth: {
-                '13rem': '13rem'
+                '13rem': '13rem',
+                '38rem': '38rem'
             }
 
         },
@@ -56,5 +62,15 @@ module.exports = {
             '3/4': '75%',
             'full': '100%',
         },
+        maxHeight: {
+            '0': '0',
+            '115': '115px',
+            '1/4': '25%',
+            '1/2': '50%',
+            '3/4': '75%',
+            '90%': '90%',
+            'full': '100%',
+        }
+
     }
 }

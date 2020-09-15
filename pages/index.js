@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import Head from 'next/head'
 import { Container } from '../components/main'
 import { Header } from '../components/Layout/header'
@@ -8,6 +8,8 @@ import AddPost from '../components/Content/AddPost'
 import ItemPost from '../components/Content/ItemPost'
 import DropLogin from '../components/Aside/DropLogin'
 import DropMenu from '../components/Aside/DropMenu'
+import Comment from '../components/Modal/Comment'
+
 export default function Home() {
   return (
     <>
@@ -29,6 +31,7 @@ export default function Home() {
           </div>
         </div>
       </Container>
+      {/* <Comment /> */}
 
     </>
   )

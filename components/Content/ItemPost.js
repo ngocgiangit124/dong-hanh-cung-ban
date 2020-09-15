@@ -1,8 +1,29 @@
-import React, { memo } from 'react'
+import React, { memo, useState, useEffect } from 'react'
+import Comment from '../Modal/Comment'
+import Share from '../Modal/Share'
 
 const IteamPost = memo(() => {
+
+    const [state, setState] = useState({
+        comment: 'hidden',
+        share: 'hidden'
+    })
+    const hideComment = () => {
+        setState({ ...state, comment: 'block' })
+    }
+    const closeComment = () => {
+        setState({ ...state, comment: 'hidden' })
+    }
+    const hideShare = () => {
+        setState({ ...state, share: 'block' })
+    }
+    const closeShare = () => {
+        setState({ ...state, share: 'hidden' })
+    }
     return (
         <>
+            {state.comment === 'block' && <Comment display={state.comment} close={() => closeComment()} />}
+            {state.share === 'block' && <Share display={state.share} close={() => closeShare()} />}
             <div className="mt-8 pt-4 pb-4  bg-white rounded-lg">
                 <div className=" pl-6 pr-6">
                     <div className={` w-full flex items-center justify-between`}>
@@ -38,16 +59,16 @@ const IteamPost = memo(() => {
                     </div>
                     <div className="border-t-2 mt-6 pt-2 pb-2 flex items-center justify-between ">
                         <div className="w-1/2 border-gray-900 sm:w-full pr-3">
-                            <a href="" className="rounded-full text-lg items-center flex justify-center w-full p-3 font-semibold">
+                            <div className="rounded-full text-lg items-center flex justify-center w-full p-3 font-semibold" style={{ cursor: 'pointer' }} onClick={() => hideComment()}>
                                 <img className="mr-4" src="../img/icon_comment.png" />
                                 <span>Bình luận</span>
-                            </a>
+                            </div>
                         </div>
                         <div className="w-1/2 border-gray-900 sm:w-full pl-3">
-                            <a href="" className="rounded-full text-lg items-center flex justify-center w-full p-3 font-semibold">
+                            <div className="rounded-full text-lg items-center flex justify-center w-full p-3 font-semibold" style={{ cursor: 'pointer' }} onClick={() => hideShare()} >
                                 <img className="mr-4" src="../img/icon_chiase.png" />
                                 <span>Chia sẻ</span>
-                            </a>
+                            </div>
                         </div>
 
                     </div>
