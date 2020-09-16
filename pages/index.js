@@ -27,10 +27,7 @@ export default function Home() {
             </div>
           </div>
           <div className="col-span-1 ml-4 mr-4 hidden  sm:hidden md:block">
-            <DropMenu />
-            <DropLogin />
             <Menu />
-
           </div>
         </div>
       </Container>

@@ -3,7 +3,7 @@ import React, { memo } from 'react'
 const DropLogin = memo(() => {
     return (
         <>
-            <div className="py-6 px-6 bg-blue-700">
+            <div className="py-6 px-6 bg-blue-700 relative sm:relative   md:absolute  md:right-0 md:w-ct21 md:top-0 md:mt-12">
                 <div>
                     <a className="bg-white p-3 rounded-lg flex font-semibold  justify-center leading-5">
                         <img className="mr-2" src="../img/icon_fb.png" />

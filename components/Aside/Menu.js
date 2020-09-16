@@ -10,37 +10,37 @@ const Menu = memo(() => {
                     <div className='w-16'>
                         <img src='../img/home.png' className='p-2' />
                     </div>
-                    <p className='font-semibold text-xs'>TRANG CHỦ</p>
+                    <div className='font-semibold text-sm'>TRANG CHỦ</div>
                 </div>
                 <div className='flex items-center pb-2'>
                     <div className='w-16'>
                         <img src='../img/newsfeed.png' className='p-2' />
                     </div>
-                    <p className='font-semibold text-xs'>TIN TỨC</p>
+                    <span className='font-semibold text-sm'>TIN TỨC</span>
                 </div>
                 <div className='flex items-center pb-2'>
                     <div className='w-16'>
                         <img src='../img/review.png' className='p-2' />
                     </div>
-                    <p className='font-semibold text-xs'> REVIEW</p>
+                    <div className='font-semibold text-sm'> REVIEW</div>
                 </div>
                 <div className='flex items-center pb-2'>
                     <div className='w-16'>
                         <img src='../img/XMLID_823_.png' className='p-2' />
                     </div>
-                    <p className='font-semibold text-xs'>HOT VIDEO</p>
+                    <div className='font-semibold text-sm'>HOT VIDEO</div>
                 </div>
                 <div className='flex items-center pb-2'>
                     <div className='w-16'>
                         <img src='../img/Combined Shape.png' className='p-2' />
                     </div>
-                    <p className='font-semibold text-xs'>ĐỜI SỐNG XÃ HỘI</p>
+                    <div className='font-semibold text-sm'>ĐỜI SỐNG XÃ HỘI</div>
                 </div>
                 <div className='flex items-center pb-2'>
                     <div className='w-16'>
                         <img src='../img/writing.png' className='p-2' />
                     </div>
-                    <p className='font-semibold text-xs'>BẠN ĐỌC VIẾT</p>
+                    <div className='font-semibold text-sm'>BẠN ĐỌC VIẾT</div>
                 </div>
             </div >
 

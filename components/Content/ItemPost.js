@@ -54,8 +54,8 @@ const IteamPost = memo(() => {
                         <h3 className="text-xl font-medium">Resort ở Hội An vào top khu nghỉ dưỡng hàng đầu Đông Nam Á </h3>
                     </div>
                     <div className='flex text-xs  mt-6'>
-                        <img src='../img/icon_commentsm.png' className="mr-2" /><p className="mr-10">141</p>
-                        <img src='../img/icon_chiasesm.png' className="mr-2" /><p>12121</p>
+                        <img src='../img/icon_commentsm.png' className="mr-2" /><span className="mr-10">141</span>
+                        <img src='../img/icon_chiasesm.png' className="mr-2" /><span>12121</span>
                     </div>
                     <div className="border-t-2 mt-6 pt-2 pb-2 flex items-center justify-between ">
                         <div className="w-1/2 border-gray-900 sm:w-full pr-3">
