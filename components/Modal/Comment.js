@@ -1,6 +1,7 @@
 import React, { memo, useState } from 'react';
-
 const Comment = memo((props) => {
+    const [state, setState] = useState({})
+
     const [comment, setComment] = useState([
         { avatar: '../img/avatar1.png', date: '20H-23/07/2020', name: 'Hoàng Văn Thái', comment: 'Bo lao', numLike: '1313', answer: [{ avatar: '../img/avatar1.png', date: '20H-23/07/2020', name: 'Hoàng Văn Thái', numLike: '12313', comment: 'Bo lao' }, { avatar: '../img/avatar1.png', date: '20H-23/07/2020', name: 'Hoàng Văn Thái', numLike: '12313', comment: 'Bo lao' }, { avatar: '../img/avatar1.png', date: '20H-23/07/2020', name: 'Hoàng Văn Thái', numLike: '12313', comment: 'Bo lao' }] },
         { avatar: '../img/avatar1.png', date: '20H-23/07/2020', name: 'Hoàng Văn Thái11', comment: 'Bo lao vc', numLike: '1313', answer: [{ avatar: '../img/avatar1.png', date: '20H-23/07/2020', name: 'Hoàng Văn Thái', numLike: '12313', comment: 'Bo lao' }] },
@@ -9,7 +10,9 @@ const Comment = memo((props) => {
     const close = () => {
         props.close()
     }
+    const onAnswer = () => {
 
+    }
     const getAnswer = (answer) => {
         return answer.map((item, index) => {
             return (
@@ -35,6 +38,7 @@ const Comment = memo((props) => {
 
     const getComment = () => {
         return comment.map((item, index) => {
+
             return (
                 <>
                     <div className='comment w-full' key={index}>
@@ -48,16 +52,14 @@ const Comment = memo((props) => {
                         <div className='my-4 ml-12 text-base'>
                             <p>{item.comment}</p>
                             <div className='flex text-xs my-5'>
-                                <img className='mr-1' src='../img/like.png' /><p className='text-blue-800 mr-10'>{item.numLike}</p>
-                                <img className='mr-1' src='../img/comment.png' /><p className='text-gray-400'>Trả 1ời</p>
+                                <a className='flex items-center cursor-pointer'><img className='mr-1' src='../img/like.png' /><span className='text-blue-800 mr-10'>{item.numLike}</span></a>
+                                <a onClick={() => setState({ ...state, index: !state.index })} className='flex items-center cursor-pointer'><img className='mr-1' src='../img/comment.png' /><span className='text-gray-400'>Trả 1ời</span></a>
                             </div>
-
-                            {/* <div>
+                            {state.index && <div>
                                 <textarea className="bg-colorinput focus:outline-none focus:shadow-outline border rounded-lg py-2 px-4 
                                     block w-full appearance-none leading-normal resize-none" type="text" placeholder="Bạn đang nghĩ gì?" rows='3' />
-
                                 <input className='bg-#1472BE rounded-md py-1 text-white font-semibold text-sm w-full my-5 ' type='button' value="GỬI BÌNH LUẬN" />
-                            </div> */}
+                            </div>}
                             {/* BEGIN ANSWER */}
                             {getAnswer(item.answer)}
                         </div>
