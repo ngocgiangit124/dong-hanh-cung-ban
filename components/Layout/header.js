@@ -5,6 +5,9 @@ import Notification from '../Notification/Notification'
 import DropMenu from '../Aside/DropMenu'
 import DropLogin from '../Aside/DropLogin'
 import WarpMenu from '../Aside/WarpMenu';
+import Link from 'next/link'
+import ModalRegis from '../../components/Modal/ModalRegis'
+
 // console.log(logo);
 export function Header() {
     const [state, setState] = useState({
@@ -12,17 +15,19 @@ export function Header() {
         button2: false
     })
     const [state2, setState2] = useState(false)
-
+    const [state3, setState3] = useState(false)
     console.log(state);
     return (
         <>
+            {state3 && <ModalRegis onClose={() => setState3(false)} />}
             <div className={`${HeaderCss.colorfff}`}>
                 <div className="md:container md:pl-10 md:pr-10 md:mx-auto">
                     <div className={`md:ml-4 md:mr-4 md:${HeaderCss.hspec84} flex items-center justify-between xs:h-16 xs:ml-5 xs:mr-5  `} >
                         <div>
-                            <a href="/">
+                            <Link href="/"><a >
                                 <img className="xs:w-24" src="../img/logo.png" alt="logo" />
                             </a>
+                            </Link>
                         </div>
                         <div className="hidden sm:hidden md:block " >
                             <div className={`relative ${HeaderCss.hspec50} ${HeaderCss.wspec450}`}>
@@ -31,10 +36,13 @@ export function Header() {
                             </div>
                         </div>
 
-                        <div className={`h-12 w-64 items-center xs:justify-end md:justify-between  flex`}>
+                        <div className={`h-12 w-64 items-center xs:justify-end md:justify-between flex`}>
                             <div className="items-center xs:flex md:hidden">
                                 <button className={`mr-4 `}><img className="w-8 p-1" src="../img/icon-search.png" /></button>
                             </div>
+
+                            <button className="border-2 rounded-lg bg-blue-600" onClick={() => setState3(!state3)} >Login</button>
+
                             <div className=" hidden sm:hidden md:flex items-center relative" onClick={() => setState({ ...state, button2: !state.button2 })} style={{ cursor: 'pointer' }} >
                                 <div className="mr-4 relative" ><img className="rounded" src="../img/avatar.png" alt="logo" /></div>
                                 <div className="relative">Hoàng Văn Thái</div>
@@ -62,7 +70,7 @@ export function Header() {
                     </div >
                 </div>
             </div>
-            <WarpMenu setClick={state2} setClick2={()=>setState2(false)}/>
+            <WarpMenu setClick={state2} setClick2={() => setState2(false)} />
         </>
     )
 }

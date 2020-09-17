@@ -9,9 +9,7 @@ const WarpMenu = memo((props) => {
     });
     return (
         <>
-            <div className="menu-mob fixed left-0 right-0 top-0 bottom-0 bg-gray-700 opacity-0 pointer-events-none" >
 
-            </div>
             <div className={`z-10 fixed left-0 right-0 top-0 bottom-0 ${props.setClick ? '' : 'transform-110vw'} transition-all duration-300`} >
                 <div className="ml-24 relative bg-white overflow-y-scroll h-screen">
                     <div className="p-5">
@@ -36,7 +34,7 @@ const WarpMenu = memo((props) => {
 
                 </div>
             </div>
-            <div className="z-20 fixed left-0 top-0 bottom-0 w-24" onClick={props.setClick2}>
+            <div className={`z-20 fixed left-0 top-0 bottom-0 w-24 ${props.setClick ? '' : 'transform-110vw'}`} onClick={props.setClick2}>
 
             </div>
 

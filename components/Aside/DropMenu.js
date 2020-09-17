@@ -5,9 +5,6 @@ const DropMenu = (props) => {
     const [state, setState] = useState(false)
     return (
         <>
-            {state &&
-                <ModalRegis />
-            }
             <div className={`bg-blue-700 px-2 py-5 relative xs:text-sm xs:relative md:absolute h-auto  md:right-0 md:w-ct21 md:top-0 md:mt-12 `}>
                 <div className="flex items-center xs:pl-6 md:px-6 text-white leading-5  py-3 rounded hover:bg-blue-800">
                     <div className="w-12"><img src="../img/icon-user-circle.png" /></div>

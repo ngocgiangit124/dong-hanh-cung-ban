@@ -2,7 +2,7 @@ import React, { memo, useState } from 'react';
 import Register from '../Modal/Register'
 import Login from '../Modal/Login'
 
-const ModalRegis = memo(() => {
+const ModalRegis = memo((props) => {
     const [state, setState] = useState(true)
 
     return (
@@ -14,7 +14,7 @@ const ModalRegis = memo(() => {
                             <a className={`mr-12 py-6 cursor-pointer ${state ? 'active-post' : ''}`} onClick={() => setState(!state)}>TIN TỨC</a>
                             <a className={`py-6 cursor-pointer ${!state ? 'active-post' : ''}`} onClick={() => setState(!state)} >VIDEO</a>
                         </div>
-                        <span className="close">&times;</span>
+                        <span className="close" onClick={() => props.onClose()}>&times;</span>
                     </div>
                     <hr />
                 </div>
