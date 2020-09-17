@@ -8,6 +8,7 @@ import NamePage from '../../components/Content/NamePage'
 import CreatePost from '../../components/Create/Post'
 import ColumLeft from '../../components/Layout/ColumLeft'
 import ColumRight from '../../components/Layout/ColumRight'
+import Bottom from '../../components/Aside/Bottom'
 export default function Home() {
     return (
         <>
