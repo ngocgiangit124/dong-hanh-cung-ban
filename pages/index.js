@@ -9,14 +9,18 @@ import ItemPost from '../components/Content/ItemPost'
 import DropLogin from '../components/Aside/DropLogin'
 import DropMenu from '../components/Aside/DropMenu'
 import Comment from '../components/Modal/Comment'
+import WarpMenu from '../components/Aside/WarpMenu'
+import HotNews from '../components/Aside/HotNews'
+import HasTag from '../components/Aside/HasTag'
+import Bottom from '../components/Aside/Bottom'
 
 export default function Home() {
   return (
     <>
       <Header />
       <Container>
-        <div className={`mt-8 grid grid-cols-3`}>
-          <div className=" col-span-2 ml-4 mr-4 mb-20">
+        <div className={`mt-8 md:grid md:grid-cols-3`}>
+          <div className=" md:col-span-2 ml-4 mr-4 mb-20">
             <QaHeader />
             <AddPost />
             <ItemPost />
@@ -28,6 +32,12 @@ export default function Home() {
           </div>
           <div className="col-span-1 ml-4 mr-4 hidden  sm:hidden md:block">
             <Menu />
+
+            <img src='../img/Aside1.png' className=' mt-5 ' />
+            <img src='../img/Aside2.png' className=' mt-5 ' />
+            <HotNews />
+            <HasTag />
+            <Bottom />
           </div>
         </div>
       </Container>

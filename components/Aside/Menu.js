@@ -44,14 +44,9 @@ const Menu = memo(() => {
                 </div>
             </div >
 
-            {/* <div className='w-4/16 bg-white rounded-lg mt-5 p-5'> */}
-            <img src='../img/Aside1.png' className=' mt-5 ' />
-            {/* </div> */}
-            <img src='../img/Aside2.png' className=' mt-5 ' />
 
-            <HotNews />
-            <HasTag />
-            <Bottom />
+
+
         </>
     );
 });
