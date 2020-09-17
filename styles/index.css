@@ -238,3 +238,17 @@ p {
     cursor: auto;
   }
   /* EndHastag */
+.outline-nonenone {
+  outline: none;
+  outline-style: none; 
+  outline-width: 0; 
+  border : 0px;
+  border-radius:50%;
+}
+.outline-nonenone:active, .outline-nonenone:focus {
+  outline: none;
+  outline-style: none; 
+  outline-width: 0; 
+  border : 0px;
+  border-radius:50%;
+}

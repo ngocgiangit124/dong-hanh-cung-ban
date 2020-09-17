@@ -4,10 +4,10 @@ const Contact = memo(() => {
     return (
         <>
             <div className="mt-6 bg-white py-6 rounded-lg">
-                <div className="px-8">
+                <div className="xs:px-3 md:px-8">
                     <h3 className="text-xl font-semibold">Thông tin liên hệ</h3>
                 </div>
-                <div className="px-8 mt-6 ">
+                <div className="xs:px-3 md:px-8 mt-6 ">
                     <div className="flex">
                         <div className="w-24 font-light text-gray-500">Địa chỉ:</div><div>Lô T&S , Đường N7a, KCN Hòa Xá, phường Mỹ Xá, Thành phố Nam Định, tỉnh Nam Định, Việt Nam</div>
                     </div>
@@ -31,7 +31,7 @@ const Contact = memo(() => {
                     <h3 className="text-xl font-semibold">Form liên hệ</h3>
                 </div>
 
-                <div className="px-24 py-4 mt-5">
+                <div className="xs:px-3 md:px-24 py-4 mt-5">
                     <div>
                         <div className="font-semibold"><label className="text-black">Họ tên</label></div>
                         <div className="box-border mt-2">

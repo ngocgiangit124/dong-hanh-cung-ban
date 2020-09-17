@@ -37,11 +37,14 @@ module.exports = {
                 'ct23': '23rem',
                 '40%': '50%',
                 '90%': '90%'
+
             },
             height: {
                 'ct30': '30rem',
                 '80vh': '80vh',
                 '55vh': '55vh',
+                '18': '4.5rem',
+                '10n': '2.625rem',
             },
             top: {
                 '1': '1rem',
@@ -52,9 +55,10 @@ module.exports = {
             maxWidth: {
                 '13rem': '13rem',
                 '38rem': '38rem'
-            }
+            },
 
         },
+
         minWidth: {
             '0': '0',
             '115': '115px',

@@ -12,15 +12,15 @@ const DropMenu = (props) => {
                 </div>
                 <div className="flex items-center xs:pl-6 md:px-6 text-white leading-5 py-3 rounded hover:bg-blue-800">
                     <div className="w-12"><img src="../img/icon-newspaper.png" /></div>
-                    <div>BÀI ĐÃ ĐĂNG</div>
+                    <div><Link href="/post/create"><a>BÀI ĐÃ ĐĂNG</a></Link></div>
                 </div>
                 <div className="flex items-center xs:pl-6 md:px-6 text-white leading-5 py-3 rounded hover:bg-blue-800">
                     <div className="w-12"><img src="../img/icon-shape.png" /></div>
-                    <div>XEM GẦN ĐÂY</div>
+                    <div><Link href="/"><a>XEM GẦN ĐÂY</a></Link></div>
                 </div>
                 <div className="flex items-center xs:pl-6 md:px-6 text-white leading-5 py-3 rounded hover:bg-blue-800" onClick={() => setState(true)}>
                     <div className="w-12"><img src="../img/icon-sign-out-alt.png" /></div>
-                    <div>ĐĂNG XUẤT</div>
+                    <div><Link href="/"><a>ĐĂNG XUẤT</a></Link></div>
                 </div>
             </div>
         </>

@@ -22,21 +22,21 @@ export function Header() {
             {state3 && <ModalRegis onClose={() => setState3(false)} />}
             <div className={`${HeaderCss.colorfff}`}>
                 <div className="md:container md:pl-10 md:pr-10 md:mx-auto">
-                    <div className={`md:ml-4 md:mr-4 md:${HeaderCss.hspec84} flex items-center justify-between xs:h-16 xs:ml-5 xs:mr-5  `} >
-                        <div>
+                    <div className={`md:ml-4 md:mr-4 md:${HeaderCss.hspec84} flex items-center justify-between xs:h-18 xs:ml-5 xs:mr-5  `} >
+                        <div className="">
                             <Link href="/"><a >
-                                <img className="xs:w-24" src="../img/logo.png" alt="logo" />
+                                <img className="xs:w-24 xs:h-10n md:w-auto md:h-auto" src="../img/logo.png" alt="logo" />
                             </a>
                             </Link>
                         </div>
                         <div className="hidden sm:hidden md:block " >
                             <div className={`relative ${HeaderCss.hspec50} ${HeaderCss.wspec450}`}>
-                                <input placeholder="Tìm kiếm" className={`bg-colorinput relative pr-8 pl-8 rounded-full py-2 px-4 h-12  ${HeaderCss.wspec450}`} ></input>
-                                <button className={`mr-1 absolute right-0 p-3 h-12 w-12`}><img src="../img/icon-search.png" /></button>
+                                <input placeholder="Tìm kiếm" className={`outline-none bg-colorinput relative pr-8 pl-8 rounded-full py-2 px-4 h-12  ${HeaderCss.wspec450}`} ></input>
+                                <button className={`outline-nonenone mr-1 absolute right-0 p-3 h-12 w-12`}><img src="../img/icon-search.png" /></button>
                             </div>
                         </div>
 
-                        <div className={`h-12 w-64 items-center xs:justify-end md:justify-between flex`}>
+                        <div className={`h-12 md:w-64 items-center xs:justify-end md:justify-between flex`}>
                             <div className="items-center xs:flex md:hidden">
                                 <button className={`mr-4 `}><img className="w-8 p-1" src="../img/icon-search.png" /></button>
                             </div>
