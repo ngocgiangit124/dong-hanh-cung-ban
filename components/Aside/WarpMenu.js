@@ -1,18 +1,22 @@
-import React, { memo } from 'react';
+import React, { memo, useState } from 'react';
 import DropMenu from './DropMenu';
 import Menu from './Menu';
 
-const WarpMenu = memo(() => {
+const WarpMenu = memo((props) => {
+    const [state, setState] = useState({
+        button1: false,
+        button2: false
+    });
     return (
         <>
-            <div className="menu-mob fixed left-0 right-0 top-0 bottom-0 bg-gray-500 opacity-0 pointer-events-none">
+            <div className="menu-mob fixed left-0 right-0 top-0 bottom-0 bg-gray-700 opacity-0 pointer-events-none" >
 
             </div>
-            <div className=" z-10 fixed left-0 right-0 top-0 bottom-0 translate-x-full">
+            <div className={`z-10 fixed left-0 right-0 top-0 bottom-0 ${props.setClick ? '' : 'transform-110vw'} transition-all duration-300`} >
                 <div className="ml-24 relative bg-white overflow-y-scroll h-screen">
-                    <div className="">
-                        <div className=" hidden sm:hidden md:flex items-center relative" onClick={() => setState({ ...state, button2: !state.button2 })} style={{ cursor: 'pointer' }} >
-                            <div className="mr-4 relative" ><img className="rounded" src="../img/avatar.png" alt="logo" /></div>
+                    <div className="p-5">
+                        <div className="flex sm:flex md:hidden items-center relative font-semibold" onClick={() => setState({ ...state, button2: !state.button2 })} style={{ cursor: 'pointer' }} >
+                            <div className="mr-4 relative w-10 h-10" ><img className="rounded  w-10 h-10" src="../img/avatar.png" alt="logo" /></div>
                             <div className="relative">Hoàng Văn Thái</div>
                             <div className="ml-2 relative">
                                 <svg className="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -20,17 +24,22 @@ const WarpMenu = memo(() => {
                                 </svg>
                             </div>
                             {/* {state.button2 && <DropLogin />} */}
-                            {state.button2 && <DropMenu />}
                         </div>
-
                     </div>
                     <div className="">
-                        <DropMenu />
+                        {/* {state.button2 && <DropMenu setClickMenu={state} />} */}
+                        <div className={` overflow-auto ${state.button2 ? 'transition-h-down' : 'transition-h-up'}`}>
+                            <DropMenu setClickMenu={state} />
+                        </div>
                         <Menu />
                     </div>
 
                 </div>
             </div>
+            <div className="z-20 fixed left-0 top-0 bottom-0 w-24" onClick={props.setClick2}>
+
+            </div>
+
         </>
     );
 });

@@ -8,6 +8,7 @@
   .active-post {
     @apply text-blue-700  border-blue-700 border-b-2;
   }
+
 }
 body {
   background: #F3F4F7;
@@ -85,5 +86,16 @@ p {
   }
   .cursor-poiter {
     cursor: pointer;
+  }
+  .transform-110vw {
+    transform: translate(110vw);
+  }
+  .transition-h-up {
+    max-height: 0;
+    transition: max-height 0.3s ease-out;
+  }
+  .transition-h-down {
+    max-height: 500px;
+    transition: max-height 0.3s ease-in;
   }
   /* End Modal */

@@ -11,7 +11,7 @@ export function Header() {
         button1: false,
         button2: false
     })
-
+    const [state2, setState2] = useState(false)
 
     console.log(state);
     return (
@@ -53,7 +53,7 @@ export function Header() {
                                     <Notification />
                                 }
                             </div>
-                            <div className="xs:block md:hidden ml-4 text-gray-500 cursor-pointer">
+                            <div className="xs:block md:hidden ml-4 text-gray-500 cursor-pointer" onClick={() => setState2(!state2)}>
                                 <svg className="w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                                 </svg>
@@ -62,7 +62,7 @@ export function Header() {
                     </div >
                 </div>
             </div>
-            {/* <WarpMenu /> */}
+            <WarpMenu setClick={state2} setClick2={()=>setState2(false)}/>
         </>
     )
 }
