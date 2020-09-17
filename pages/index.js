@@ -9,10 +9,12 @@ import ItemPost from '../components/Content/ItemPost'
 import DropLogin from '../components/Aside/DropLogin'
 import DropMenu from '../components/Aside/DropMenu'
 import Comment from '../components/Modal/Comment'
+import ModalRegis from '../components/Modal/ModalRegis'
 
 export default function Home() {
   return (
     <>
+      {/* <ModalRegis /> */}
       <Header />
       <Container>
         <div className={`mt-8 grid grid-cols-3`}>
