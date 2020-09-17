@@ -1,34 +1,24 @@
-import React, { memo, Component, PropTypes, useState } from 'react'
+import React, { useState } from 'react';
 import dynamic from 'next/dynamic'
-
-const RichTextEditor = dynamic(
-    () => import('react-rte'),
+import { EditorState } from "draft-js";
+const Editor = dynamic(
+    () => import("react-draft-wysiwyg").then(mod => mod.Editor),
     { ssr: false }
 )
-
-
-const Editer = memo(({ value, setValue }) => {
-
-    const [editorValue, setEditorValue] =
-        React.useState(RichTextEditor.createEmptyValue());
-
-    const handleChange = value => {
-        setEditorValue(value);
-        setValue(value.toString("markdown"));
+function Editer(props) {
+    const [state, setState] = useState(EditorState.createEmpty())
+    const onEditorStateChange = editorState => {
+        setState(editorState);
     };
-
     return (
-        <RichTextEditor
-            value={editorValue}
-            onChange={handleChange}
-            required
-            id="body-text"
-            name="bodyText"
-            type="string"
-            multiline
-            variant="filled"
-            style={{ minHeight: 410 }}
+        <Editor
+            editorState={state}
+            wrapperClassName="rich-editor demo-wrapper"
+            editorClassName="demo-editor"
+            onEditorStateChange={(editorState) => onEditorStateChange(editorState)}
+        // placeholder="The message goes here..."
         />
     );
-});
+}
+
 export default Editer;

@@ -1,5 +1,7 @@
 import React, { memo, useState } from 'react'
 import Editer from './Editer'
+import Hastag from './Hastag'
+
 const CreatePost = memo(() => {
     const [state, setState] = useState({
         tintuc: true,
@@ -26,14 +28,14 @@ const CreatePost = memo(() => {
                         </textarea>
                     </div>
                 </div>
+                {/*  */}
                 <div className="mt-6">
                     <div className=""><label className="text-black">Nội dung</label><span className="text-red-500"> *</span></div>
-                    <div className="box-border mt-2">
-                        <textarea className="px-6 py-2  w-full border border-gray-400 h-56 rounded-lg" placeholder="Viết mô tả" >
-                        </textarea>
+                    <div className="box-border mt-2 border border-gray-400 rounded-lg h-64 ">
+                        <Editer />
                     </div>
                 </div>
-
+                {/*  */}
                 <div className="mt-6">
                     <div className=""><label className="text-black">Chọn chuyên mục</label><span className="text-red-500"> *</span></div>
                     <div className="box-border mt-2 ">
@@ -49,7 +51,8 @@ const CreatePost = memo(() => {
                 <div className="mt-6">
                     <div className=""><label className="text-black">Tag</label><span className="text-red-500"> *</span></div>
                     <div className="box-border mt-2">
-                        giang giang
+
+                        <Hastag />
                     </div>
                 </div>
 
