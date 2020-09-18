@@ -89,8 +89,6 @@ export const Header = memo(() => {
                             <div className="items-center xs:flex md:hidden">
                                 <button className={`mr-4 `}><img className="w-8 p-1" src="../img/icon-search.png" /></button>
                             </div>
-
-
                             {
                                 login ? isLogin : isRegister
                             }
