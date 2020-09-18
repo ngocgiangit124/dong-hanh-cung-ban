@@ -27,6 +27,7 @@
     "redux-thunk": "^2.3.0",
     "sass": "^1.26.10",
     "tailwind-editor": "0.0.5",
-    "tailwindcss": "^1.8.10"
+    "tailwindcss": "^1.8.10",
+    "use-state-if-mounted": "^1.0.4"
   }
 }

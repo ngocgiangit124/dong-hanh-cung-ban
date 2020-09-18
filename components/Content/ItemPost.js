@@ -1,5 +1,9 @@
 import React, { memo, useState, useEffect } from 'react'
 import Comment from '../Modal/Comment'
+// const Comment = dynamic(
+//     () => import('../Modal/Comment'),
+//     { ssr: false }
+// )
 import Share from '../Modal/Share'
 import Link from 'next/link'
 const IteamPost = memo((props) => {

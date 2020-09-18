@@ -1,4 +1,4 @@
-import React, { memo, useState, useEffect } from 'react';
+import React, { memo, useState, useRef, useEffect } from 'react';
 import HeaderCss from '../../styles/Header.module.css'
 import Notification from '../Notification/Notification'
 import DropMenu from '../Aside/DropMenu'
@@ -7,15 +7,29 @@ import WarpMenu from '../Aside/WarpMenu';
 import Link from 'next/link'
 import ModalRegis from '../../components/Modal/ModalRegis'
 import { useSelector } from 'react-redux'
+import { useStateIfMounted } from 'use-state-if-mounted'
 export const Header = memo(() => {
-    const [state, setState] = useState({
+    const [state, setState] = useStateIfMounted({
         button1: false,
         button2: false
     })
+    const refNoti = useRef(null)
+    const refDropMenu = useRef(null)
+
     const [state2, setState2] = useState(false)
     const [state3, setState3] = useState(false)
-    const [type, setType] = useState(false)
+    const [state4, setState4] = useState(false)
 
+    const [type, setType] = useState(false)
+    useEffect(() => {
+        document.addEventListener('click', (e) => handle(e))
+        return () => { document.removeEventListener('click', (e) => handle()), console.log('faf') }
+    }, [])
+    const handle = (e) => {
+        if (!refNoti?.current?.contains(e.target) && !refDropMenu?.current?.contains(e.target)) {
+            setState({ button1: false, button2: false })
+        }
+    }
     const onOpenInfo = () => {
         setState({ button1: false, button2: !state.button2 })
 
@@ -26,7 +40,7 @@ export const Header = memo(() => {
     const login = useSelector(state => state.login.login)
     const isLogin = (
         <>
-            <div className=" hidden sm:hidden md:flex items-center relative z-30" onClick={() => onOpenInfo()} style={{ cursor: 'pointer' }} >
+            <div className=" hidden sm:hidden md:flex items-center relative z-30" onClick={() => onOpenInfo()} style={{ cursor: 'pointer' }} ref={refDropMenu}>
                 <div className="mr-4 relative" ><img className="rounded" src="../img/avatar.png" alt="logo" /></div>
                 <div className="relative">Hoàng Văn Thái</div>
                 <div className="ml-2 relative">
@@ -35,13 +49,13 @@ export const Header = memo(() => {
                     </svg>
                 </div>
                 {/* {state.button2 && <DropLogin />} */}
-                {state.button2 && <DropMenu onClose={() => onOpenInfo()} />}
+                {state.button2 && <DropMenu />}
             </div>
-            <div className='relative'>
+            <div className='relative' ref={refNoti}>
                 <img className='relative z-20' style={{ cursor: 'pointer' }} src={state.button1 ? "../img/chuongActive.png" : "../img/chuong.png"} alt="logo" onClick={() => onOpenNoti()} />
                 {
                     state.button1 &&
-                    <Notification onClose={() => onOpenNoti()} />
+                    <Notification />
                 }
             </div>
         </>
@@ -51,7 +65,7 @@ export const Header = memo(() => {
         <>
             <div></div>
             <div className=" hidden sm:hidden md:flex items-center relative " >
-                <div className="sm:hidden md:flex items-center relative cursor-pointer" onClick={() => setState({ ...state, button2: !state.button2 })} >
+                <div className="sm:hidden md:flex items-center relative cursor-pointer" onClick={() => setState4(!state4)} >
                     <div className="mr-4 relative" ><img className="rounded" src="../img/avatar.png" alt="logo" /></div>
                     <div className="relative">Đăng nhập</div>
                     <div className="ml-2 relative">
@@ -61,7 +75,7 @@ export const Header = memo(() => {
                     </div>
                 </div>
                 {/* {state.button2 && <DropLogin />} */}
-                {state.button2 && <DropLogin onClose={() => setState({ ...state, button2: false })} onToggleModal={(x) => { setState3(true), setType(x) }} />}
+                {state4 && <DropLogin onClose={() => setState({ ...state, button2: false })} onToggleModal={(x) => { setState3(true), setType(x) }} />}
             </div>
         </>
     )

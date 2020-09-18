@@ -1,7 +1,7 @@
-import React, { memo, useState } from 'react';
+import React, { memo, useState, Fragment, useRef, useEffect } from 'react';
 import { useRouter } from 'next/router'
 const Comment = memo((props) => {
-
+    const refScroll = useRef(null)
     const router = useRouter()
     const [comment, setComment] = useState([
         { avatar: '../img/avatar1.png', date: '20H-23/07/2020', name: 'Hoàng Văn Thái', comment: 'Bo lao', numLike: '1313', answer: [{ avatar: '../img/avatar1.png', date: '20H-23/07/2020', name: 'Hoàng Văn Thái', numLike: '12313', comment: 'Bo lao' }, { avatar: '../img/avatar1.png', date: '20H-23/07/2020', name: 'Hoàng Văn Thái', numLike: '12313', comment: 'Bo lao' }, { avatar: '../img/avatar1.png', date: '20H-23/07/2020', name: 'Hoàng Văn Thái', numLike: '12313', comment: 'Bo lao' }] },
@@ -9,7 +9,7 @@ const Comment = memo((props) => {
         { avatar: '../img/avatar1.png', date: '20H-23/07/2020', name: 'Hoàng Văn Thái112', comment: 'Bo lao vccsssss', numLike: '1313', answer: [{ avatar: '../img/avatar1.png', date: '20H-23/07/2020', name: 'Hoàng Văn Thái', numLike: '12313', comment: 'Bo lao' }] }
     ])
 
-
+    const [paddingComment, setPC] = useState(100)
     const [show, setShow] = useState()
     const [state, setState] = useState('')
     const [state2, setState2] = useState({ index: '', idx: '' })
@@ -21,6 +21,13 @@ const Comment = memo((props) => {
     const close = () => {
         props.close()
     }
+    useEffect(() => {
+        refScroll?.current?.addEventListener("scroll", (e) => checkScroll(e), { passive: true })
+        return () => refScroll?.current?.addEventListener("scroll", (e) => checkScroll(e))
+    }, [])
+    const checkScroll = (e) => {
+    }
+
     const sendComment = () => {
         if (input.comment !== '') {
             var add = { avatar: '../img/avatar1.png', date: '20H-23/07/2020', name: 'TTA', comment: input.comment, numLike: '0', answer: [] }
@@ -46,7 +53,7 @@ const Comment = memo((props) => {
     const getAnswer = (answer, index) => {
         return answer.map((item, idx) => {
             return (
-                <div id={`comment-${index}-answer-${idx}`}>
+                <div id={`comment-${index}-answer-${idx}`} key={idx}>
                     <div className='flex flex-rows items-center w-full'>
                         <img className='mr-2' src='../img/avatar1.png' />
                         <div className=' w-full flex md:flex-row justify-between md:items-center sm:flex-col sm:items-start'>
@@ -83,8 +90,9 @@ const Comment = memo((props) => {
     const getComment = () => {
         return comment.map((item, index) => {
             return (
-                <>
-                    <div id={`comment-${index}`} className='comment w-full' key={index}>
+                <Fragment key={index}>
+
+                    <div id={`comment-${index}`} className='comment w-full'>
                         <div className='flex flex-rows items-center w-full'>
                             <img className='mr-2' src='../img/avatar1.png' />
                             <div className=' w-full flex md:flex-row justify-between md:items-center sm:flex-col sm:items-start '>
@@ -111,7 +119,7 @@ const Comment = memo((props) => {
                                     <input className='bg-#1472BE rounded-md py-1 text-white font-semibold text-sm w-full my-5 ' onClick={() => sendAnswer(index)} type='button' value="GỬI BÌNH LUẬN" />
                                 </div>
                             }
-                            {show !== index &&
+                            {show !== index && item.answer.length > 0 &&
                                 <div className='w-full flex justify-center items-center' onClick={() => setShow(index)}>
                                     <div className='cursor-pointer text-color1472BE'>Hiển thị tất cả {item.answer.length} câu trả lời</div>
                                 </div>
@@ -121,7 +129,7 @@ const Comment = memo((props) => {
                                 getAnswer(item.answer, index)
 
                             }
-                            {show === index &&
+                            {show === index && item.answer.length > 0 &&
                                 <div className='w-full flex justify-center items-center' onClick={() => setShow(!show)}>
                                     <div className='cursor-pointer text-color1472BE'>Ẩn tất cả {item.answer.length} câu trả lời</div>
                                 </div>
@@ -130,14 +138,15 @@ const Comment = memo((props) => {
                     </div>
                     <hr className='w-full my-5 border-1 border-gray-400' />
 
-                </>
+                </Fragment>
             )
         })
     }
 
+    console.log(paddingComment)
     return (
-        <div id="myModal" className={`modal block`}>
-            <div className='modal-content h-80vh overflow-y-hidden sm:w-full md:w-40% relative' >
+        <div id="myModal" className={`modal block`} style={{ paddingTop: `${paddingComment}px` }}>
+            <div className='modal-content h-full md:h-80vh overflow-y-hidden sm:w-full md:w-40% relative' >
                 <div className='absolute border-gray-600 bg-white w-full'>
                     <div className='modal-title flex justify-between items-center my-2 mx-5 text-2xl '>
                         Bình luận
@@ -145,7 +154,7 @@ const Comment = memo((props) => {
                     </div>
                     <hr />
                 </div>
-                <div className='overflow-auto h-full pt-10'>
+                <div className='overflow-auto h-full pt-10' ref={refScroll}>
                     <div className='m-8 flex flex-col justify-center items-center'>
                         <textarea className="bg-colorinput focus:outline-none focus:shadow-outline border rounded-lg py-2 px-4 
                             block w-full appearance-none leading-normal resize-none" type="text" placeholder="Bạn đang nghĩ gì?" rows='3' value={input.comment} onChange={(e) => setInput({ ...input, comment: e.target.value })} />
