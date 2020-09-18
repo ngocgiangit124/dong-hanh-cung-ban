@@ -19,12 +19,12 @@ const Login = memo(() => {
                         <input className="w-full px-5" type="text" placeholder="Nhập mật khẩu" />
                         <img src="../img/Shape.png" className="w-5 h-5 mx-3" />
                     </div>
-                    <div className="float-right my-3 cursor-pointer text-blue-600">Quên mật khẩu</div>
+                    <div className="float-right my-1 cursor-pointer text-blue-600">Quên mật khẩu</div>
                 </div>
             </div>
 
             <div className="flex items-center w-full">
-                <input type="checkbox" className='w-5 h-5 rounded-xl m-5 bg-blue-600' />
+                <input type="checkbox" className='w-5 h-5 rounded-xl my-5 bg-blue-600' />
                 <span className='font-base'>Ghi nhớ tài khoản</span>
             </div>
             <button type="text" className='bg-blue-600 text-lg rounded-lg w-64 h-12 text-white mb-10'>Đăng nhập</button>

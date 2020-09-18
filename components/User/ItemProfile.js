@@ -4,7 +4,7 @@ const ItemProfile = memo(() => {
     return (
         <>
             <div className="mt-6 bg-white py-6 rounded-lg">
-                <div className="px-8">
+                <div className="xs:px-3 md:px-8">
                     <h3 className="text-xl font-semibold">Thông tin người dùng</h3>
                 </div>
                 <div className="relative mt-10">
@@ -20,7 +20,7 @@ const ItemProfile = memo(() => {
                         <span className=" m-auto">Thêm ảnh đại diện</span>
                     </div>
                 </div>
-                <div className="px-24  py-4 mt-5">
+                <div className="xs:px-3 md:px-24   py-4 mt-5">
                     <div>
                         <div className="font-semibold"><label className="text-black">Họ tên</label></div>
                         <div className="box-border mt-2">
@@ -45,11 +45,11 @@ const ItemProfile = memo(() => {
 
 
             <div className="mt-8 bg-white  py-6 rounded-lg">
-                <div className="px-8">
+                <div className="xs:px-3 md:px-8">
                     <h3 className="text-xl font-semibold">Đổi mật khẩu</h3>
                 </div>
 
-                <div className="px-24  py-4 mt-5">
+                <div className="xs:px-3 md:px-24   py-4 mt-5">
                     <div>
                         <div className="font-semibold"><label className="text-black">Mật khẩu cũ</label></div>
                         <div className="box-border mt-2">
@@ -78,11 +78,11 @@ const ItemProfile = memo(() => {
 
 
             <div className="mt-8 bg-white  py-6 rounded-lg">
-                <div className="px-8">
+                <div className="xs:px-3 md:px-8">
                     <h3 className="text-xl font-semibold">Mạng xã hội</h3>
                 </div>
 
-                <div className="px-24  py-4 mt-5">
+                <div className="xs:px-3 md:px-24 py-4 mt-5">
                     <div className="flex items-center content-center justify-between pb-8 border-b-2 border-gray-300 mb-8">
                         <div className=" flex items-center">
                             <div className="mr-3">
@@ -124,7 +124,7 @@ const ItemProfile = memo(() => {
                 </div>
             </div>
 
-            <div className="mt-8  py-6 rounded-lg">
+            <div className="mt-8 mb-8  py-6 rounded-lg">
                 <div className="flex">
                     <button className="m-auto px-16 py-3 bg-blue-700 rounded-lg text-white font-semibold">CẬP NHẬT</button>
                 </div>

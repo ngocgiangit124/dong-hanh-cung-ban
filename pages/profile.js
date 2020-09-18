@@ -6,29 +6,30 @@ import Menu from '../components/Aside/Menu'
 import NamePage from '../components/Content/NamePage'
 import IteamPost from '../components/Content/ItemPost'
 import ItemProfile from '../components/User/ItemProfile'
-import { useDispatch } from 'react-redux'
-import * as Types from '../store/constants/ActionType'
-export default function Home() {
-    const dispatch = useDispatch()
+import ColumLeft from '../components/Layout/ColumLeft'
+import ColumRight from '../components/Layout/ColumRight'
+import Bottom from '../components/Aside/Bottom'
 
+export default function Home() {
     return (
         <>
-            <div onClick={() => dispatch({
-                type: Types.CLOSE_HEADER
-            })} >
-                <Header />
-                <Container>
-                    <div className={`mt-8 grid grid-cols-3`}>
-                        <div className=" col-span-2 ml-4 mr-4 mb-20">
-                            <NamePage>THÔNG TIN TÀI KHOẢN</NamePage>
-                            <ItemProfile />
-                        </div>
-                        <div className="col-span-1 ml-4 mr-4 hidden  sm:hidden md:block">
-                            <Menu />
-                        </div>
+
+            <Header />
+            <Container>
+                <ColumLeft>
+                    <NamePage>THÔNG TIN TÀI KHOẢN</NamePage>
+                    <ItemProfile />
+                    <div className="xs:block md:hidden">
+                        <Bottom />
                     </div>
-                </Container>
-            </div>
+
+                </ColumLeft>
+                <ColumRight>
+                    <Menu />
+                    <Bottom />
+                </ColumRight>
+            </Container>
         </>
+
     )
 }

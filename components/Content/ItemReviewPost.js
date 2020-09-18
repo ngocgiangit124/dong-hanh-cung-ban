@@ -4,23 +4,26 @@ const ReviewIteamPost = memo(() => {
     return (
         <>
             <div className="mt-6 pt-4 pb-4  bg-white rounded-lg">
-                <div className=" pl-6 pr-6">
+                <div className="xs:px-3 md:px-6">
                     <div className="mt-1">
                         <h3 className="text-xl font-medium">Resort ở Hội An vào top khu nghỉ dưỡng hàng đầu Đông Nam Á </h3>
                     </div>
-                    <div className={`mt-6 w-full flex items-center justify-between`}>
+                    <div className={`mt-6 w-full flex items-center  xs:block  md:flex md:justify-between`}>
                         <div className="flex items-center">
-                            <div className="flex items-center mr-5">
-                                <div className="mr-5" ><img className="rounded" src="../img/avatar.png" alt="logo" /></div>
-                                <div className="font-semibold">Hoàng Văn Thái</div>
-
+                            <div className="flex items-center ">
+                                <div className="mr-5 w-10" ><img className="rounded w-full" src="../img/avatar.png" alt="logo" /></div>
                             </div>
-                            <div className="text-gray-500 text-sm">
-                                <span>20h15 - 23/07/2020</span>
+                            <div className="flex xs:block  md:flex md:justify-start w-full">
+                                <div className="mr-5">
+                                    <div className="font-semibold">Hoàng Văn Thái</div>
+                                </div>
+                                <div className="text-gray-500 text-sm">
+                                    <span>20h15 - 23/07/2020</span>
+                                </div>
                             </div>
                         </div>
                         <div>
-                            <div className='flex items-center  text-xs  '>
+                            <div className='flex items-center  text-xs  xs:mt-6 md:mt-0 leading-4'>
                                 <img src='../img/icon_commentsm.png' className="mr-2" /><span className="mr-10">141</span>
                                 <img src='../img/icon_chiasesm.png' className="mr-2" /><span>12121</span>
                             </div>
@@ -33,7 +36,7 @@ const ReviewIteamPost = memo(() => {
                 <div className="mt-6 w-full">
                     <img className="w-full" src="../img/img_item_post.png" alt="" />
                 </div>
-                <div className=" pl-6 pr-6">
+                <div className="xs:px-3 md:px-6">
                     <div className="mt-6">
                         <p>Trưởng ban Thi đua khen thưởng Trung ương cho hay, đối với một cán bộ phải tạm đình chỉ công tác để điều tra liên quan đến một số vụ án phức tạp thì việc xét duyệt tặng thưởng Huân chương sẽ không được xem xét.</p>
 
@@ -73,9 +76,9 @@ const ReviewIteamPost = memo(() => {
                         <h3 className="text-lg font-semibold">Từ khoá</h3>
                     </div>
                     <div className="mt-5 flex flex-wrap font-semibold text-blue-700 text-xs">
-                        <a href="" className="py-2 px-5 leading-4 rounded-full bg-blue-200 max-w-13rem text-center mr-2">vong quanh the gioi...</a>
-                        <a href="" className="py-2 px-5 leading-4 rounded-full bg-blue-200 max-w-13rem text-center mr-2">travel</a>
-                        <a href="" className="py-2 px-5 leading-4 rounded-full bg-blue-200 max-w-13rem text-center mr-2">travel</a>
+                        <a href="" className="py-2 px-5 mb-2 leading-4 rounded-full bg-blue-200 max-w-13rem text-center mr-2">vong quanh the gioi...</a>
+                        <a href="" className="py-2 px-5 mb-2 leading-4 rounded-full bg-blue-200 max-w-13rem text-center mr-2">travel</a>
+                        <a href="" className="py-2 px-5 mb-2 leading-4 rounded-full bg-blue-200 max-w-13rem text-center mr-2">travel</a>
                     </div>
 
                     <div className="border-t-2 mt-12 pt-2 pb-2 flex items-center justify-between ">

@@ -25,7 +25,7 @@ const IteamPost = memo(() => {
             {state.comment === 'block' && <Comment display={state.comment} close={() => closeComment()} />}
             {state.share === 'block' && <Share display={state.share} close={() => closeShare()} />}
             <div className="mt-8 pt-4 pb-4  bg-white rounded-lg">
-                <div className=" pl-6 pr-6">
+                <div className="xs:px-3 md:px-6">
                     <div className={` w-full flex items-center justify-between`}>
                         <div className="flex items-center">
                             <div className="mr-5 xs:w-10 md:w-8 xs:h-10 md:h-8" ><img className="rounded xs:w-10 md:w-8 xs:h-10 md:h-8" src="../img/avatar.png" alt="logo" /></div>
@@ -52,13 +52,13 @@ const IteamPost = memo(() => {
                         <img className="w-full" src="../img/img_item_post.png" alt="" />
                     </a>
                 </div>
-                <div className=" pl-6 pr-6">
+                <div className="xs:px-3 md:px-6">
                     <div className="mt-6">
                         <a href="/review">
                             <h3 className="text-xl font-medium">Resort ở Hội An vào top khu nghỉ dưỡng hàng đầu Đông Nam Á </h3>
                         </a>
                     </div>
-                    <div className='flex text-xs  mt-6'>
+                    <div className='flex text-xs  mt-6 leading-4'>
                         <img src='../img/icon_commentsm.png' className="mr-2" /><span className="mr-10">141</span>
                         <img src='../img/icon_chiasesm.png' className="mr-2" /><span>12121</span>
                     </div>

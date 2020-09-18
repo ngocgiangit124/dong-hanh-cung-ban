@@ -14,13 +14,14 @@ export const Header = memo(() => {
     const [state2, setState2] = useState(false)
     const [state3, setState3] = useState(false)
 
-
     const onOpenInfo = () => {
         setState({ button1: false, button2: !state.button2 })
+
     }
     const onOpenNoti = () => {
-        setState({ ...state, button1: !state.button1 })
+        setState({ button1: !state.button1, button2: false })
     }
+
     return (
         <>
             {state3 && <ModalRegis onClose={() => setState3(false)} />}
@@ -47,7 +48,7 @@ export const Header = memo(() => {
 
                             <button className="border-2 rounded-lg bg-blue-600" onClick={() => setState3(!state3)} >Login</button>
 
-                            <div className=" hidden sm:hidden md:flex items-center relative" onClick={() => onOpenInfo()} style={{ cursor: 'pointer' }} >
+                            <div className=" hidden sm:hidden md:flex items-center relative z-30" onClick={() => onOpenInfo()} style={{ cursor: 'pointer' }} >
                                 <div className="mr-4 relative" ><img className="rounded" src="../img/avatar.png" alt="logo" /></div>
                                 <div className="relative">Hoàng Văn Thái</div>
                                 <div className="ml-2 relative">
@@ -56,14 +57,14 @@ export const Header = memo(() => {
                                     </svg>
                                 </div>
                                 {/* {state.button2 && <DropLogin />} */}
-                                {state.button2 && <DropMenu />}
+                                {state.button2 && <DropMenu onClose={() => onOpenInfo()} />}
                             </div>
 
                             <div className='relative'>
-                                <img className='relative' style={{ cursor: 'pointer' }} src={state.button1 ? "../img/chuongActive.png" : "../img/chuong.png"} alt="logo" onClick={() => onOpenNoti()} />
+                                <img className='relative z-20' style={{ cursor: 'pointer' }} src={state.button1 ? "../img/chuongActive.png" : "../img/chuong.png"} alt="logo" onClick={() => onOpenNoti()} />
                                 {
                                     state.button1 &&
-                                    <Notification />
+                                    <Notification onClose={() => onOpenNoti()} />
                                 }
                             </div>
                             <div className="xs:block md:hidden ml-4 text-gray-500 cursor-pointer" onClick={() => setState2(!state2)}>
