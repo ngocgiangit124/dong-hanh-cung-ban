@@ -60,7 +60,6 @@ export const Header = memo(() => {
                         </svg>
                     </div>
                 </div>
-                {/* {state.button2 && <DropLogin />} */}
                 {state.button2 && <DropLogin onClose={() => setState({ ...state, button2: false })} onToggleModal={(x) => { setState3(true), setType(x) }} />}
             </div>
         </>
@@ -101,7 +100,7 @@ export const Header = memo(() => {
                     </div >
                 </div>
             </div>
-            <WarpMenu setClick={state2} setClick2={() => setState2(false)} />
+            <WarpMenu setClick={state2} setState2={() => setState2(!state2)} setClick2={() => setState2(false)} onClose={() => setState({ ...state, button2: false })} onToggleModal={(x) => { setState3(true), setType(x) }} />
         </>
     )
 });
