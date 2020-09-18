@@ -8,7 +8,7 @@ const login = (state = initialState, action) => {
 
         case Types.LOGIN:
             console.log('dd')
-            return { ...state, login: !state.close };
+            return { ...state, login: !state.login };
         default: return { ...state };
     }
 }

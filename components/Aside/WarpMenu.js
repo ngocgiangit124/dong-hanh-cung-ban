@@ -13,7 +13,7 @@ const WarpMenu = memo((props) => {
             <div className={`z-10 fixed left-0 right-0 top-0 bottom-0 ${props.setClick ? '' : 'transform-110vw'} transition-all duration-300`} >
                 <div className="ml-24 relative bg-white overflow-y-scroll h-screen">
                     <div className="p-5">
-                        <div className="flex sm:flex md:hidden items-center relative font-semibold cursor-pointer" onClick={() => setState({ ...state, button10: !state.button10 }), console.log(state.button10)} >
+                        <div className="flex sm:flex md:hidden items-center relative font-semibold cursor-pointer" onClick={() => setState({ ...state, button2: !state.button2 })} >
                             <div className="mr-4 relative w-10 h-10" ><img className="rounded  w-10 h-10" src="../img/avatar.png" alt="logo" /></div>
                             <div className="relative">Hoàng Văn Thái</div>
                             <div className="ml-2 relative">

@@ -23,7 +23,7 @@ export const Header = memo(() => {
         setState({ button1: !state.button1, button2: false })
     }
     const login = useSelector(state => state.login.login)
-
+    console.log(login)
     const isLogin = (
         <>
             <div className=" hidden sm:hidden md:flex items-center relative z-30" onClick={() => onOpenInfo()} style={{ cursor: 'pointer' }} >

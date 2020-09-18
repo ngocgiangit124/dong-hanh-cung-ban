@@ -2,15 +2,16 @@ import React, { memo, useState } from 'react';
 import * as Types from '../../store/constants/ActionType';
 
 import { useDispatch } from 'react-redux'
-const Login = memo(() => {
+const Login = memo((props) => {
     const dispatch = useDispatch()
     const [state, setState] = useState({
         email: '',
         password: ''
     })
     const login = () => {
-        if (state.email === "admin@123" && state.password === '123456')
-            dispatch({ type: Types.LOGIN })
+        // if (state.email === "admin@123" && state.password === '123456')
+        dispatch({ type: Types.LOGIN })
+        props.onClose()
     }
     return (
         <div className='m-8 flex flex-col justify-center items-center'>
