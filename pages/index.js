@@ -15,8 +15,8 @@ import HasTag from '../components/Aside/HasTag'
 import Bottom from '../components/Aside/Bottom'
 import ColumLeft from '../components/Layout/ColumLeft'
 import ColumRight from '../components/Layout/ColumRight'
+
 export default function Home() {
-  const [state, setState] = useState(false)
   return (
     <>
       <Header />

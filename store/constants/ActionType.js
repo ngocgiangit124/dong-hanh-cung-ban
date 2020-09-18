@@ -1,1 +1,1 @@
-export const CLOSE_HEADER = 'CLOSE_HEADER';
+export const LOGIN = 'LOGIN';
