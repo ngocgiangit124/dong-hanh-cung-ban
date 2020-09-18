@@ -138,7 +138,7 @@ const Comment = memo((props) => {
     return (
         <div id="myModal" className={`modal block`}>
             <div className='modal-content h-80vh overflow-y-hidden sm:w-full md:w-40% relative' >
-                <div className='absolute border-gray-600 bg-white sm:w-full'>
+                <div className='absolute border-gray-600 bg-white w-full'>
                     <div className='modal-title flex justify-between items-center my-2 mx-5 text-2xl '>
                         Bình luận
                     <span className="close" onClick={() => close()}>&times;</span>
