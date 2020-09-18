@@ -2,7 +2,7 @@ import React, { memo, useState, useEffect } from 'react'
 import Comment from '../Modal/Comment'
 import Share from '../Modal/Share'
 
-const IteamPost = memo(() => {
+const IteamPost = memo((props) => {
 
     const [state, setState] = useState({
         comment: 'hidden',
@@ -24,7 +24,7 @@ const IteamPost = memo(() => {
         <>
             {state.comment === 'block' && <Comment display={state.comment} close={() => closeComment()} />}
             {state.share === 'block' && <Share display={state.share} close={() => closeShare()} />}
-            <div className="mt-8 pt-4 pb-4  bg-white rounded-lg">
+            <div className={`${props.firstClass ? '' : "mt-8"} pt-4 pb-4  bg-white rounded-lg`}>
                 <div className="xs:px-3 md:px-6">
                     <div className={` w-full flex items-center justify-between`}>
                         <div className="flex items-center">
