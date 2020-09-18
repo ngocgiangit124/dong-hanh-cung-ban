@@ -25,7 +25,7 @@ const ModalRegis = memo((props) => {
                                 ?
                                 <Register />
                                 :
-                                <Login />
+                                <Login onClose={() => props.onClose()} />
                         }
                     </div>
                 </div >
