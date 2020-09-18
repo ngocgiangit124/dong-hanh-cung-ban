@@ -43,13 +43,15 @@ export function Header() {
 
                             <button className="border-2 rounded-lg bg-blue-600" onClick={() => setState3(!state3)} >Login</button>
 
-                            <div className=" hidden sm:hidden md:flex items-center relative" onClick={() => setState({ ...state, button2: !state.button2 })} style={{ cursor: 'pointer' }} >
-                                <div className="mr-4 relative" ><img className="rounded" src="../img/avatar.png" alt="logo" /></div>
-                                <div className="relative">Hoàng Văn Thái</div>
-                                <div className="ml-2 relative">
-                                    <svg className="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-                                    </svg>
+                            <div className=" hidden sm:hidden md:flex items-center relative" >
+                                <div className="hidden sm:hidden md:flex items-center relative cursor-pointer" onClick={() => setState({ ...state, button2: !state.button2 })} >
+                                    <div className="mr-4 relative" ><img className="rounded" src="../img/avatar.png" alt="logo" /></div>
+                                    <div className="relative">Hoàng Văn Thái</div>
+                                    <div className="ml-2 relative">
+                                        <svg className="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                                        </svg>
+                                    </div>
                                 </div>
                                 {/* {state.button2 && <DropLogin />} */}
                                 {state.button2 && <DropMenu />}

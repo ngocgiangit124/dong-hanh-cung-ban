@@ -1,5 +1,4 @@
 import React, { memo, useState } from 'react'
-import ModalRegis from '../../components/Modal/ModalRegis'
 import Link from 'next/link'
 const DropMenu = (props) => {
     const [state, setState] = useState(false)
@@ -20,7 +19,7 @@ const DropMenu = (props) => {
                 </div>
                 <div className="flex items-center xs:pl-6 md:px-6 text-white leading-5 py-3 rounded hover:bg-blue-800" onClick={() => setState(true)}>
                     <div className="w-12"><img src="../img/icon-sign-out-alt.png" /></div>
-                    <div><Link href="/"><a>ĐĂNG XUẤT</a></Link></div>
+                    <div><Link href="/logout"><a>ĐĂNG XUẤT</a></Link></div>
                 </div>
             </div>
         </>

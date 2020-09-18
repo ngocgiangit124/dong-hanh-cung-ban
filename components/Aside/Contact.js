@@ -8,14 +8,14 @@ const Contact = memo(() => {
                     <h3 className="text-xl font-semibold">Thông tin liên hệ</h3>
                 </div>
                 <div className="xs:px-3 md:px-8 mt-6 ">
-                    <div className="flex">
-                        <div className="w-24 font-light text-gray-500">Địa chỉ:</div><div>Lô T&S , Đường N7a, KCN Hòa Xá, phường Mỹ Xá, Thành phố Nam Định, tỉnh Nam Định, Việt Nam</div>
+                    <div className="flex xs:flex-wrap">
+                        <div className="w-24 font-light text-gray-500">Địa chỉ:</div><div className="max-w-xl xs:mt-2 md:mt-0">Lô T&S , Đường N7a, KCN Hòa Xá, phường Mỹ Xá, Thành phố Nam Định, tỉnh Nam Định, Việt Nam</div>
                     </div>
-                    <div className="flex mt-4">
-                        <div className="w-24 font-light text-gray-500">Hotline:</div><div>0987 654 321</div>
+                    <div className="flex mt-4 xs:flex-wrap">
+                        <div className="w-24 font-light text-gray-500">Hotline:</div><div className="max-w-xl xs:mt-2 md:mt-0" >0987 654 321</div>
                     </div>
-                    <div className="flex mt-4">
-                        <div className="w-24 font-light text-gray-500">Email:</div><div>donghanhcungbandoc@gmail.com</div>
+                    <div className="flex mt-4 xs:flex-wrap">
+                        <div className="w-24 font-light text-gray-500">Email:</div><div className="max-w-xl xs:mt-2 md:mt-0" >donghanhcungbandoc@gmail.com</div>
                     </div>
 
                     <div className="mt-8 mb-6">
