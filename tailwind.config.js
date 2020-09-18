@@ -40,7 +40,6 @@ module.exports = {
 
             },
             height: {
-                'ct30': '30rem',
                 '80vh': '80vh',
                 '55vh': '55vh',
                 '18': '4.5rem',
@@ -75,6 +74,8 @@ module.exports = {
             '3/4': '75%',
             '90%': '90%',
             'full': '100%',
+            '30rem': '30rem',
+            '80vh': '80vh',
         }
 
     }

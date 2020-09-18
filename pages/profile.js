@@ -13,6 +13,7 @@ import Bottom from '../components/Aside/Bottom'
 export default function Home() {
     return (
         <>
+
             <Header />
             <Container>
                 <ColumLeft>
@@ -29,5 +30,6 @@ export default function Home() {
                 </ColumRight>
             </Container>
         </>
+
     )
 }

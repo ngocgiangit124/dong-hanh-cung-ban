@@ -1,10 +1,8 @@
 import React, { memo, useState } from 'react';
 import Register from '../Modal/Register'
 import Login from '../Modal/Login'
-
 const ModalRegis = memo((props) => {
     const [state, setState] = useState(true)
-
     return (
         <>
             <div id="myModal" className={`modal block`}>
@@ -13,10 +11,10 @@ const ModalRegis = memo((props) => {
                     <div className='absolute border-gray-600 bg-white sm:w-full'>
                         <div className='modal-title flex justify-between items-center my-2 mx-5 text-2xl '>
                             <div className="py-4 px-8 text-lg bg-white rounded-lg font-semibold text-gray-500 leading-6 ">
-                                <a className={`mr-12 py-6 cursor-pointer ${state ? 'active-post' : ''}`} onClick={() => setState(!state)}>TIN TỨC</a>
-                                <a className={`py-6 cursor-pointer ${!state ? 'active-post' : ''}`} onClick={() => setState(!state)} >VIDEO</a>
+                                <a className={`mr-12 py-6 cursor-pointer ${state ? 'active-post' : ''}`} onClick={() => setState(!state)}>ĐĂNG KÝ</a>
+                                <a className={`py-6 cursor-pointer ${!state ? 'active-post' : ''}`} onClick={() => setState(!state)} >ĐĂNG NHẬP</a>
                             </div>
-                            <span className="close" >&times;</span>
+                            <span className="close" onClick={() => props.onClose()}>&times;</span>
                         </div>
                         <hr />
                     </div>
