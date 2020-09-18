@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React, { memo } from 'react'
 
 const AddPost = memo(() => {
@@ -17,16 +18,20 @@ const AddPost = memo(() => {
                 </div>
                 <div className="mt-2 pt-2 pb-2 flex items-center justify-between xs:flex-wrap">
                     <div className="xs:w-full md:w-1/2 border-gray-900  md:pr-3 md:p-0 xs:pb-4">
-                        <a href="" className="rounded-full text-lg items-center flex justify-center border border-gray-400 w-full p-3 font-semibold">
-                            <img className="mr-4" src="../img/icon_writing.png" />
-                            <span>Tin Tức</span>
-                        </a>
+                        <Link href="/post/create">
+                            <a className="rounded-full text-lg items-center flex justify-center border border-gray-400 w-full p-3 font-semibold">
+                                <img className="mr-4" src="../img/icon_writing.png" />
+                                <span>Tin Tức</span>
+                            </a>
+                        </Link>
                     </div>
                     <div className="xs:w-full md:w-1/2 border-gray-900  md:pl-3">
-                        <a href="" className="rounded-full text-lg items-center flex justify-center border border-gray-400 w-full p-3 font-semibold bg-blue-700 text-white">
-                            <img className="mr-4" src="../img/icon_yout.png" />
-                            <span>Video</span>
-                        </a>
+                        <Link href="/post/create">
+                            <a className="rounded-full text-lg items-center flex justify-center border border-gray-400 w-full p-3 font-semibold bg-blue-700 text-white">
+                                <img className="mr-4" src="../img/icon_yout.png" />
+                                <span>Video</span>
+                            </a>
+                        </Link>
                     </div>
                 </div>
             </div >

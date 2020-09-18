@@ -30,7 +30,7 @@ export const Header = memo(() => {
                     <div className={`md:ml-4 md:mr-4 md:${HeaderCss.hspec84} flex items-center justify-between xs:h-16 xs:ml-5 xs:mr-5`} >
                         <div>
                             <Link href="/"><a >
-                                <img className="xs:w-24" src="../img/logo.png" alt="logo" />
+                                <img className="xs:w-24 xs:h-10n md:w-auto md:h-auto" src="../img/logo.png" alt="logo" />
                             </a>
                             </Link>
                         </div>
