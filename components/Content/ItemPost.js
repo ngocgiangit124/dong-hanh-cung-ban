@@ -1,7 +1,7 @@
 import React, { memo, useState, useEffect } from 'react'
 import Comment from '../Modal/Comment'
 import Share from '../Modal/Share'
-
+import Link from 'next/link'
 const IteamPost = memo((props) => {
 
     const [state, setState] = useState({
@@ -48,15 +48,17 @@ const IteamPost = memo((props) => {
 
                 </div>
                 <div className="mt-6 w-full">
-                    <a href="/review">
+                    <Link href="/review"><a>
                         <img className="w-full" src="../img/img_item_post.png" alt="" />
                     </a>
+                    </Link>
                 </div>
                 <div className="xs:px-3 md:px-6">
                     <div className="mt-6">
-                        <a href="/review">
+                        <Link href="/review"><a>
                             <h3 className="text-xl font-medium">Resort ở Hội An vào top khu nghỉ dưỡng hàng đầu Đông Nam Á </h3>
                         </a>
+                        </Link>
                     </div>
                     <div className='flex text-xs  mt-6 leading-4'>
                         <img src='../img/icon_commentsm.png' className="mr-2" /><span className="mr-10">141</span>
