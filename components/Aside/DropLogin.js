@@ -1,10 +1,9 @@
 import React, { memo, useState } from 'react'
 import ModalRegis from '../Modal/ModalRegis';
 
-const DropLogin = memo(() => {
-    const [state3, setState3] = useState(false)
+const DropLogin = memo((props) => {
     return (
-        <>  {state3 && <ModalRegis onClose={() => setState3(false)} />}
+        <>
             <div className="py-6 px-6 bg-blue-700 relative sm:relative   md:absolute  md:right-0 md:w-ct21 md:top-0 md:mt-12 customScrollbar">
                 <div>
                     <div className="bg-white p-3 rounded-lg flex font-semibold  justify-center leading-5 cursor-pointer">
@@ -23,10 +22,10 @@ const DropLogin = memo(() => {
                     <div className="w-full border-t-2 border-white absolute opacity-50 top-0 mt-3 z-0"></div>
                 </div>
                 <div className="text-white ">
-                    <div className="bg-blue-800 p-3 rounded-lg flex font-semibold  justify-center leading-5 cursor-pointer" onClick={() => setState3(!state3)}>
+                    <div className="bg-blue-800 p-3 rounded-lg flex font-semibold  justify-center leading-5 cursor-pointer" onClick={() => { props.onToggleModal(true), props.onClose() }}>
                         <span>ĐĂNG NHẬP </span>
                     </div>
-                    <div className="mt-4 bg-blue-800 p-3 rounded-lg flex font-semibold  justify-center leading-5 cursor-pointer" onClick={() => setState3(!state3)}>
+                    <div className="mt-4 bg-blue-800 p-3 rounded-lg flex font-semibold  justify-center leading-5 cursor-pointer" onClick={() => { props.onToggleModal(false), props.onClose() }}>
                         <span>ĐĂNG KÝ</span>
                     </div>
                 </div>

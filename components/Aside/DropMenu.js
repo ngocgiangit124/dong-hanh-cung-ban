@@ -1,7 +1,11 @@
 import React, { memo, useState } from 'react'
 import Link from 'next/link'
+import { useDispatch } from 'react-redux'
+import * as Types from '../../store/constants/ActionType';
+
 const DropMenu = (props) => {
-    const [state, setState] = useState(false)
+    // const [state, setState] = useState(false)
+    const dispatch = useDispatch()
     return (
         <>
             {/* <div className="top-0 bottom-0 right-0 left-0 w-full h-full z-10 fixed" onClick={props.onClose}></div> */}
@@ -18,9 +22,9 @@ const DropMenu = (props) => {
                     <div className="w-12"><img src="../img/icon-shape.png" /></div>
                     <div><Link href="/"><a>XEM GẦN ĐÂY</a></Link></div>
                 </div>
-                <div className="flex items-center xs:pl-6 md:px-6 text-white leading-5 py-3 rounded hover:bg-blue-800" onClick={() => setState(true)}>
+                <div className="flex items-center xs:pl-6 md:px-6 text-white leading-5 py-3 rounded hover:bg-blue-800" onClick={() => dispatch({ type: Types.LOGIN })}>
                     <div className="w-12"><img src="../img/icon-sign-out-alt.png" /></div>
-                    <div><Link href="/logout"><a>ĐĂNG XUẤT</a></Link></div>
+                    <div><a>ĐĂNG XUẤT</a></div>
                 </div>
             </div>
         </>

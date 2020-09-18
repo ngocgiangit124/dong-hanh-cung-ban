@@ -1,10 +1,10 @@
 // import { combineReducers } from 'redux';
 import { combineReducers } from 'redux-immer';
 import produce from 'immer';
-import config from '../reducer/config'
+import login from '../reducer/login'
 
 const appReducers = combineReducers(produce, {
-    config,
+    login,
 
 });
 

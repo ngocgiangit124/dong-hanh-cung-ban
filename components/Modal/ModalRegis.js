@@ -2,7 +2,8 @@ import React, { memo, useState } from 'react';
 import Register from '../Modal/Register'
 import Login from '../Modal/Login'
 const ModalRegis = memo((props) => {
-    const [state, setState] = useState(true)
+    console.log(props.type)
+    const [state, setState] = useState(!props.type)
     return (
         <>
             <div id="myModal" className={`modal block`}>
