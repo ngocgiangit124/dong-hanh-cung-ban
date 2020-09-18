@@ -6,11 +6,11 @@ const DropLogin = memo((props) => {
         <>
             <div className="py-6 px-6 bg-blue-700 relative sm:relative   md:absolute  md:right-0 md:w-ct21 md:top-0 md:mt-12 customScrollbar">
                 <div>
-                    <div className="bg-white p-3 rounded-lg flex font-semibold  justify-center leading-5 cursor-pointer">
+                    <div className="bg-white p-3 rounded-lg flex font-semibold  justify-center leading-5 cursor-pointer xs:text-xs md:text-sm">
                         <img className="mr-2" src="../img/icon_fb.png" />
                         <span>Đăng nhập bằng Facebook</span>
                     </div>
-                    <div className="mt-4 bg-white p-3 rounded-lg flex font-semibold  justify-center leading-5 cursor-pointer">
+                    <div className="mt-4 bg-white p-3 rounded-lg flex font-semibold  justify-center leading-5 cursor-pointer xs:text-xs md:text-sm">
                         <img className="mr-2" src="../img/icon_gg.png" />
                         <span>Đăng nhập bằng Google</span>
                     </div>
