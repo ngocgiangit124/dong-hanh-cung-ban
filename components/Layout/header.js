@@ -58,7 +58,6 @@ export const Header = memo(() => {
                                 </div>
                                 {state.button2 && <DropMenu onClose={() => onOpenInfo()} />}
                             </div>
-
                             <div className='relative'>
                                 <img className='relative z-20' style={{ cursor: 'pointer' }} src={state.button1 ? "../img/chuongActive.png" : "../img/chuong.png"} alt="logo" onClick={() => onOpenNoti()} />
                                 {
