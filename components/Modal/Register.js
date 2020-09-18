@@ -7,7 +7,7 @@ const Register = memo((props) => {
                 <div className="flex justify-between w-full p-5">
                     <p>Tạo tài khoản để sử dụng đầy đủ tính năng và tham gia cùng cộng đồng</p>
                 </div>
-                <div className='flex justify-between w-full px-5 sm:flex-col md:flex-row'>
+                <div className='justify-between w-full px-5 flex flex-col md:flex-row'>
                     <div className="w-full mr-5">
                         <label className="text-black font-bold">Họ tên</label>
                         <div className="box-border mt-2">
@@ -21,7 +21,7 @@ const Register = memo((props) => {
                         </div>
                     </div>
                 </div>
-                <div className='flex justify-between w-full px-5 sm:flex-col md:flex-row'>
+                <div className='flex justify-between w-full px-5 flex-col md:flex-row'>
                     <div className="w-full mr-5">
                         <label className="text-black font-bold">Mật khẩu</label>
                         <div className=" flex justify-center items-center  w-full border border-gray-400 h-12 rounded-lg mt-2 ">
@@ -38,8 +38,9 @@ const Register = memo((props) => {
                     </div>
                 </div>
 
-                <div className="flex items-center w-full">
-                    <input type="checkbox" className='w-5 h-5 rounded-lg m-5 ' />
+                <div className="flex w-full pt-5">
+
+                    <input type="checkbox" className='w-10 h-10 md:h-5 sm:w-5 mx-5 mt-1' />
                     <span className='font-base'>Tôi đồng ý với <span className="text-blue-600">  &nbsp;Chính sách bảo mật  &nbsp;</span> và <span className="text-blue-600"> &nbsp;Điều khoản&nbsp;</span>của Đồng hành cùng bạn đọc</span>
                 </div>
                 <button type="text" className='bg-blue-600 text-lg rounded-lg w-64 h-12 text-white mb-10'>Đăng ký</button>

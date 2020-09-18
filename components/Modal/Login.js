@@ -6,7 +6,7 @@ const Login = memo(() => {
             <div className="flex justify-between w-full px-5 py-5">
                 <p>Đăng nhập với email</p>
             </div>
-            <div className='flex justify-between w-full px-5 sm:flex-col md:flex-row'>
+            <div className='flex justify-between w-full px-5 flex-col md:flex-row'>
                 <div className="w-full mr-5">
                     <label className="text-black font-bold">Email</label>
                     <div className="box-border mt-2">

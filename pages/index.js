@@ -13,10 +13,14 @@ import WarpMenu from '../components/Aside/WarpMenu'
 import HotNews from '../components/Aside/HotNews'
 import HasTag from '../components/Aside/HasTag'
 import Bottom from '../components/Aside/Bottom'
-
+import { useDispatch } from 'react-redux'
+import * as Types from '../store/constants/ActionType'
 export default function Home() {
+  const [state, setState] = useState(false)
+  const dispatch = useDispatch()
   return (
     <>
+
       <Header />
       <Container>
         <div className={`mt-8 md:grid md:grid-cols-3`}>

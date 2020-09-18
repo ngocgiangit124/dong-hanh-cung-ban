@@ -4,13 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next export",
     "start": "next start"
   },
   "dependencies": {
     "@celebryts/react-autocomplete-tags": "^1.0.0",
     "@zeit/next-css": "^1.0.1",
     "draft-js": "^0.11.7",
+    "immer": "^7.0.9",
     "next": "^9.5.3",
     "postcss-flexbugs-fixes": "^4.2.1",
     "postcss-preset-env": "^6.7.0",
@@ -18,7 +19,12 @@
     "react-autosize-textarea": "^7.1.0",
     "react-dom": "16.13.1",
     "react-draft-wysiwyg": "^1.14.5",
+    "react-redux": "^7.2.1",
     "react-tag-autocomplete": "^6.1.0",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-immer": "^1.0.5",
+    "redux-thunk": "^2.3.0",
     "sass": "^1.26.10",
     "tailwind-editor": "0.0.5",
     "tailwindcss": "^1.8.10"

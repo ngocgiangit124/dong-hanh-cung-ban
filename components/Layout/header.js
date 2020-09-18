@@ -1,5 +1,4 @@
-
-import React, { useState } from 'react';
+import React, { memo, useState, useEffect } from 'react';
 import HeaderCss from '../../styles/Header.module.css'
 import Notification from '../Notification/Notification'
 import DropMenu from '../Aside/DropMenu'
@@ -7,22 +6,27 @@ import DropLogin from '../Aside/DropLogin'
 import WarpMenu from '../Aside/WarpMenu';
 import Link from 'next/link'
 import ModalRegis from '../../components/Modal/ModalRegis'
-
-// console.log(logo);
-export function Header() {
+export const Header = memo(() => {
     const [state, setState] = useState({
         button1: false,
         button2: false
     })
     const [state2, setState2] = useState(false)
     const [state3, setState3] = useState(false)
-    console.log(state);
+
+
+    const onOpenInfo = () => {
+        setState({ button1: false, button2: !state.button2 })
+    }
+    const onOpenNoti = () => {
+        setState({ ...state, button1: !state.button1 })
+    }
     return (
         <>
             {state3 && <ModalRegis onClose={() => setState3(false)} />}
             <div className={`${HeaderCss.colorfff}`}>
                 <div className="md:container md:pl-10 md:pr-10 md:mx-auto">
-                    <div className={`md:ml-4 md:mr-4 md:${HeaderCss.hspec84} flex items-center justify-between xs:h-16 xs:ml-5 xs:mr-5  `} >
+                    <div className={`md:ml-4 md:mr-4 md:${HeaderCss.hspec84} flex items-center justify-between xs:h-16 xs:ml-5 xs:mr-5`} >
                         <div>
                             <Link href="/"><a >
                                 <img className="xs:w-24" src="../img/logo.png" alt="logo" />
@@ -43,7 +47,7 @@ export function Header() {
 
                             <button className="border-2 rounded-lg bg-blue-600" onClick={() => setState3(!state3)} >Login</button>
 
-                            <div className=" hidden sm:hidden md:flex items-center relative" onClick={() => setState({ ...state, button2: !state.button2 })} style={{ cursor: 'pointer' }} >
+                            <div className=" hidden sm:hidden md:flex items-center relative" onClick={() => onOpenInfo()} style={{ cursor: 'pointer' }} >
                                 <div className="mr-4 relative" ><img className="rounded" src="../img/avatar.png" alt="logo" /></div>
                                 <div className="relative">Hoàng Văn Thái</div>
                                 <div className="ml-2 relative">
@@ -56,8 +60,9 @@ export function Header() {
                             </div>
 
                             <div className='relative'>
-                                <img className='relative' style={{ cursor: 'pointer' }} src={state.button1 ? "../img/chuongActive.png" : "../img/chuong.png"} alt="logo" onClick={() => setState({ ...state, button1: !state.button1 })} />
-                                {state.button1 &&
+                                <img className='relative' style={{ cursor: 'pointer' }} src={state.button1 ? "../img/chuongActive.png" : "../img/chuong.png"} alt="logo" onClick={() => onOpenNoti()} />
+                                {
+                                    state.button1 &&
                                     <Notification />
                                 }
                             </div>
@@ -73,4 +78,7 @@ export function Header() {
             <WarpMenu setClick={state2} setClick2={() => setState2(false)} />
         </>
     )
-}
+});
+
+
+
