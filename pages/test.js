@@ -20,7 +20,7 @@ const test = memo(() => {
 
                             <img src='../img/waiting.png' />
                             <img src='../img/waiting.png' />
-
+        ``
                             <img src='../img/waiting.png' />
                             <img src='../img/waiting.png' />
                             <img src='../img/waiting.png' />

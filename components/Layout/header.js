@@ -19,7 +19,7 @@ export const Header = memo(() => {
     const [state2, setState2] = useState(false)
     const [state3, setState3] = useState(false)
     const [state4, setState4] = useState(false)
-
+    console.log(state.button2);
     const [type, setType] = useState(false)
     useEffect(() => {
         document.addEventListener('click', (e) => handle(e))
@@ -75,7 +75,7 @@ export const Header = memo(() => {
                     </div>
                 </div>
 
-                {state.button2 && <DropLogin onClose={() => setState({ ...state, button2: false })} onToggleModal={(x) => { setState3(true), setType(x) }} />}
+                {state4 && <DropLogin onClose={() => setState({ ...state, button2: false })} onToggleModal={(x) => { setState3(true), setType(x) }} />}
             </div>
         </>
     )
