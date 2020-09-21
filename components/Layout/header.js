@@ -19,7 +19,6 @@ export const Header = memo(() => {
     const [state2, setState2] = useState(false)
     const [state3, setState3] = useState(false)
     const [state4, setState4] = useState(false)
-    console.log(state.button2);
     const [type, setType] = useState(false)
     useEffect(() => {
         document.addEventListener('click', (e) => handle(e))
@@ -94,14 +93,14 @@ export const Header = memo(() => {
                         </div>
                         <div className="hidden sm:hidden md:block " >
                             <div className={`relative ${HeaderCss.hspec50} ${HeaderCss.wspec450}`}>
-                                <input placeholder="Tìm kiếm" className={`bg-colorinput relative pr-8 pl-8 rounded-full py-2 px-4 h-12  ${HeaderCss.wspec450}`} ></input>
-                                <button className={`mr-1 absolute right-0 p-3 h-12 w-12`}><img src="../img/icon-search.png" /></button>
+                                <input placeholder="Tìm kiếm" className={`outline-nonenone bg-colorinput relative pr-8 pl-8 rounded-full py-2 px-4 h-12  ${HeaderCss.wspec450}`} ></input>
+                                <button className={`outline-nonenone mr-1 absolute right-0 p-3 h-12 w-12`}><img src="../img/icon-search.png" /></button>
                             </div>
                         </div>
 
                         <div className={`h-12 md:w-64 items-center xs:justify-end md:justify-between flex`}>
                             <div className="items-center xs:flex md:hidden">
-                                <button className={`mr-4 `}><img className="w-8 p-1" src="../img/icon-search.png" /></button>
+                                <button className={`mr-4 outline-nonenone`}><img className="w-8 p-1" src="../img/icon-search.png" /></button>
                             </div>
                             {
                                 login ? isLogin : isRegister
