@@ -1,4 +1,5 @@
 import React, { memo } from 'react';
+import ViewMap from './ViewMap';
 
 const Contact = memo(() => {
     return (
@@ -18,8 +19,9 @@ const Contact = memo(() => {
                         <div className="w-24 font-light text-gray-500">Email:</div><div className="max-w-xl xs:mt-2 md:mt-0" >donghanhcungbandoc@gmail.com</div>
                     </div>
 
-                    <div className="mt-8 mb-6">
-                        <img className="w-full" src="../img/map.png" />
+                    <div className="mt-8 mb-6 h-16">
+                        <ViewMap />
+                        {/* <img className="w-full" src="../img/map.png" /> */}
                     </div>
                 </div>
             </div>
