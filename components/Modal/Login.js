@@ -14,7 +14,7 @@ const Login = memo((props) => {
         props.onClose()
     }
     return (
-        <div className='m-8 flex flex-col justify-center items-center'>
+        <div className='m-8 flex flex-col justify-center items-center '>
             <div className="flex justify-between w-full  py-5">
                 <h3>Đăng nhập với email</h3>
             </div>
