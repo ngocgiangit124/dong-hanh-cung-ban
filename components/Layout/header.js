@@ -11,10 +11,11 @@ import { useStateIfMounted } from 'use-state-if-mounted'
 export const Header = memo(() => {
     const [state, setState] = useStateIfMounted({
         button1: false,
-        button2: false
+        button2: false,
     })
     const refNoti = useRef(null)
     const refDropMenu = useRef(null)
+    const refDropRegi = useRef(null)
 
     const [state2, setState2] = useState(false)
     const [state3, setState3] = useState(false)
@@ -22,11 +23,15 @@ export const Header = memo(() => {
     const [type, setType] = useState(false)
     useEffect(() => {
         document.addEventListener('click', (e) => handle(e))
-        return () => { document.removeEventListener('click', (e) => handle()), console.log('faf') }
+        return () => {
+            document.removeEventListener('click', (e) => handle()),
+                console.log('faf')
+        }
     }, [])
     const handle = (e) => {
-        if (!refNoti?.current?.contains(e.target) && !refDropMenu?.current?.contains(e.target)) {
-            setState({ button1: false, button2: false })
+        if (!refNoti?.current?.contains(e.target) && !refDropMenu?.current?.contains(e.target) && !refDropRegi?.current?.contains(e.target)) {
+            setState({ button1: false, button2: false });
+            setState4(false);
         }
     }
     const onOpenInfo = () => {
@@ -64,7 +69,7 @@ export const Header = memo(() => {
         <>
             <div></div>
             <div className=" hidden sm:hidden md:flex items-center relative " >
-                <div className="sm:hidden md:flex items-center relative cursor-pointer" onClick={() => setState4(!state4)} >
+                <div className="sm:hidden md:flex items-center relative cursor-pointer" onClick={() => setState4(!state4)} ref={refDropRegi}>
                     <div className="mr-4 relative" ><img className="rounded" src="../img/avatar.png" alt="logo" /></div>
                     <div className="relative">Đăng nhập</div>
                     <div className="ml-2 relative">
@@ -83,7 +88,7 @@ export const Header = memo(() => {
         <>
             {state3 && <ModalRegis onClose={() => setState3(false)} type={type} />}
             <div className={`${HeaderCss.colorfff}`}>
-                <div className="md:container md:pl-10 md:pr-10 md:mx-auto">
+                <div className="md:container md:pl-10 md:pr-10 md:mx-auto md:py-1">
                     <div className={`md:ml-4 md:mr-4 md:${HeaderCss.hspec84} flex items-center justify-between xs:h-16 xs:ml-5 xs:mr-5`} >
                         <div>
                             <Link href="/"><a >
