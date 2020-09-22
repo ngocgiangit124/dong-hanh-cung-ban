@@ -19,7 +19,7 @@ const WarpMenu = memo((props) => {
     const islRegi = (
         <>
             <div className="mr-4 relative w-10 h-10" ><img className="rounded  w-10 h-10" src="../img/avatar.png" alt="logo" /></div>
-            <div className="relative">Hoàng Văn Thái</div>
+            <div className="relative">Đăng nhập</div>
         </>
     )
     return (
