@@ -77,6 +77,7 @@ module.exports = {
             'full': '100%',
             '30rem': '30rem',
             '80vh': '80vh',
+            '85vh': '85vh',
         }
 
     }
