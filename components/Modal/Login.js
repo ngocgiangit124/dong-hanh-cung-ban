@@ -15,31 +15,31 @@ const Login = memo((props) => {
     }
     return (
         <div className='m-8 flex flex-col justify-center items-center'>
-            <div className="flex justify-between w-full px-5 py-5">
-                <p>Đăng nhập với email</p>
+            <div className="flex justify-between w-full  py-5">
+                <h3>Đăng nhập với email</h3>
             </div>
-            <div className='flex justify-between w-full px-5 flex-col md:flex-row'>
-                <div className="w-full mr-5">
-                    <label className="text-black font-bold">Email</label>
+            <div className='flex justify-between w-full flex-col md:flex-row'>
+                <div className="w-full mr-6">
+                    <label className="text-black font-semibold">Email</label>
                     <div className="box-border mt-2">
                         <input className="px-6 py-2 w-full border border-gray-400 h-12 rounded-lg" type="text" placeholder="Nhập email" value={state.email} onChange={(e) => setState({ ...state, email: e.target.value })} />
                     </div>
                 </div>
-                <div className="w-full mr-5">
-                    <label className="text-black font-bold" >Mật khẩu</label>
-                    <div className=" flex justify-center items-center  w-full border border-gray-400 h-12 rounded-lg mt-2 ">
-                        <input className="w-full px-5" type="password" placeholder="Nhập mật khẩu" value={state.password} onChange={(e) => setState({ ...state, password: e.target.value })} />
-                        <img src="../img/Shape.png" className="w-5 h-5 mx-3" />
+                <div className="w-full">
+                    <label className="text-black font-semibold" >Mật khẩu</label>
+                    <div className="relative flex justify-center items-center  w-full  h-12 rounded-lg mt-2 ">
+                        <input className=" w-full py-2 h-12 border border-gray-400 relative  px-5 rounded-lg" type="password" placeholder="Nhập mật khẩu" value={state.password} onChange={(e) => setState({ ...state, password: e.target.value })} />
+                        <img src="../img/Shape.png" className="w-6 h-4  absolute right-0 mr-4 bg-gray-100" />
                     </div>
-                    <div className="float-right my-1 cursor-pointer text-blue-600">Quên mật khẩu</div>
+                    <div className="float-right my-2 cursor-pointer text-blue-600">Quên mật khẩu</div>
                 </div>
             </div>
 
-            <div className="flex items-center w-full">
-                <input type="checkbox" className='w-5 h-5 rounded-xl my-5 bg-blue-600' />
+            <div className="flex items-center w-full  mb-6 ">
+                <input type="checkbox" className='mr-3 w-5 h-5 rounded-xl  bg-blue-600' />
                 <span className='font-base'>Ghi nhớ tài khoản</span>
             </div>
-            <button type="text" className='bg-blue-600 text-lg rounded-lg w-64 h-12 text-white mb-10' onClick={() => login()}>Đăng nhập</button>
+            <button type="text" className='bg-blue-600 text-lg rounded-lg w-64 h-12 text-white mb-8' onClick={() => login()}>Đăng nhập</button>
             <hr className="w-full border-1" />
             <div className="text-base m-5">
                 Đăng nhập với tài khoản khác

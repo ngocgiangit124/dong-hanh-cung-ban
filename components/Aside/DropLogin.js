@@ -16,10 +16,11 @@ const DropLogin = memo((props) => {
                     </div>
                 </div>
                 <div className="relative my-4">
-                    <div className="relative z-10 flex justify-center">
-                        <div className="z-0 w-16 bg-blue-700 flex justify-center text-white font-thin">  <span className=" opacity-50">Hoặc</span></div>
+                    <div className="w-full border-b-2 border-white relative  opacity-50 top-0 pt-3 mt-3 mb-5 z-0"></div>
+
+                    <div className=" absolute flex justify-center item-center top-0 w-full">
+                        <div className="z-0 w-16 bg-blue-700 flex justify-center text-white font-thin m-auto "><span className=" opacity-50">Hoặc</span></div>
                     </div>
-                    <div className="w-full border-t-2 border-white absolute opacity-50 top-0 mt-3 z-0"></div>
                 </div>
                 <div className="text-white ">
                     <div className="bg-blue-800 p-3 rounded-lg flex font-semibold  justify-center leading-5 cursor-pointer" onClick={() => { props.onToggleModal(true), props.onClose() }}>
