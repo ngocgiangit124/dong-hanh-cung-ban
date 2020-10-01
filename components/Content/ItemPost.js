@@ -24,6 +24,9 @@ const IteamPost = memo((props) => {
     const closeShare = () => {
         setState({ ...state, share: 'hidden' })
     }
+    function ItemPostIndex() {
+        return axios.get('https://xcrm.techup.cloud/gowithu/items/posts?limit=10&sort=-id');
+    }
     return (
         <>
             {state.comment === 'block' && <Comment display={state.comment} close={() => closeComment()} />}

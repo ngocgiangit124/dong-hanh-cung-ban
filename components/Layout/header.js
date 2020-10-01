@@ -5,6 +5,7 @@ import DropMenu from '../Aside/DropMenu'
 import DropLogin from '../Aside/DropLogin'
 import WarpMenu from '../Aside/WarpMenu';
 import Link from 'next/link'
+import Head from 'next/head'
 import ModalRegis from '../../components/Modal/ModalRegis'
 import { useSelector } from 'react-redux'
 import { useStateIfMounted } from 'use-state-if-mounted'
@@ -86,6 +87,10 @@ export const Header = memo(() => {
 
     return (
         <>
+            <Head>
+                <title>Đồng Hành cùng bạn</title>
+                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+            </Head>
             {state3 && <ModalRegis onClose={() => setState3(false)} type={type} />}
             <div className={`${HeaderCss.colorfff}`}>
                 <div className="md:container md:pl-10 md:pr-10 md:mx-auto md:py-1">
