@@ -1,6 +1,53 @@
-import React, { memo } from 'react';
-
+import React, { memo, useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux'
+import { actEditProfile } from '../../store/action/profile.js'
 const ItemProfile = memo(() => {
+    const dispatch = useDispatch()
+    const [state, setState] = useState({
+        name: '',
+        email: '',
+        phone: '',
+        img: '',
+        img_default: ''
+    })
+    const data = useSelector(state => state.login.data)
+    useEffect(() => {
+        if (data.id && data.avatar_img) {
+            setState({ ...state, name: data.first_name, email: data.email, phone: data.title, img: data.avatarFull_img.thumbnails[4].url, img_default: data.avatarFull_img.thumbnails[4].url })
+        } else if (data.id && !data.avatar_img) {
+            setState({ ...state, name: data.first_name, email: data.email, phone: data.title })
+        }
+    }, [data])
+
+    const onChange = (e) => {
+        const target = e.target
+        const value = target.value
+        const name = target.name
+        setState({
+            ...state,
+            [name]: value
+        })
+    }
+    const getBase64Img = (data) => {
+
+        try {
+            var reader = new FileReader();
+            reader.readAsDataURL(data);
+            reader.onloadend = function () {
+                var base64data = reader.result;
+                // console.log(base64data);
+                setState({ ...state, img: base64data })
+                return;
+            }
+        } catch (error) {
+            alert('Loi upload anh')
+        }
+
+    }
+    console.log(state)
+    const submit = () => {
+        dispatch(actEditProfile(data.avatar, data.token, data.id, state.img_default, state.img, { first_name: state.name, email: state.email, title: state.phone }))
+    }
     return (
         <>
             <div className="mt-6 bg-white py-6 rounded-lg">
@@ -10,10 +57,12 @@ const ItemProfile = memo(() => {
                 <div className="relative mt-10">
                     <div className="relative">
                         <div className="m-auto h-40 w-40 bg-gray-300 rounded-full flex items-center content-center  relative">
-                            <img className="m-auto" src="../img/icon_plus.png" />
+                            {state.img === '' ? <img className="m-auto rounded avatar" src="../img/icon_plus.png" /> :
+                                <img className=" h-full w-full rounded avatar-full" src={state.img} />}
+
                         </div>
                         <div className="absolute flex w-full top-0">
-                            <input type="file" className="cursor-poiter m-auto h-40 w-40 bg-transparent opacity-0" />
+                            <input type="file" className="cursor-poiter m-auto h-40 w-40 bg-transparent opacity-0" onChange={(e) => getBase64Img(e.target.files[0])} />
                         </div>
                     </div>
                     <div className="flex w-full mt-4 relative">
@@ -24,19 +73,19 @@ const ItemProfile = memo(() => {
                     <div>
                         <div className="font-semibold"><label className="text-black">Họ tên</label></div>
                         <div className="box-border mt-2">
-                            <input className="px-6 py-2 w-full border border-gray-400 h-12 rounded-lg" type="text" placeholder="Tiêu đề" />
+                            <input className="px-6 py-2 w-full border border-gray-400 h-12 rounded-lg" type="text" value={state.name} name="name" placeholder="Tiêu đề" onChange={(e) => onChange(e)} />
                         </div>
                     </div>
                     <div className="mt-8">
                         <div className="font-semibold"><label className="text-black">Email</label></div>
                         <div className="box-border mt-2">
-                            <input className="px-6 py-2 w-full border border-gray-400 h-12 rounded-lg" type="text" placeholder="Nhập email" />
+                            <input className="px-6 py-2 w-full border border-gray-400 h-12 rounded-lg" type="text" value={state.email} placeholder="Nhập email" name="email" onChange={(e) => onChange(e)} />
                         </div>
                     </div>
                     <div className="mt-8">
                         <div className="font-semibold"><label className="text-black">Số điện thoại</label></div>
                         <div className="box-border mt-2">
-                            <input className="px-6 py-2 w-full border border-gray-400 h-12 rounded-lg" type="text" placeholder="Nhập số điện thoại" />
+                            <input className="px-6 py-2 w-full border border-gray-400 h-12 rounded-lg" type="text" value={state.phone} placeholder="Nhập số điện thoại" name="phone" onChange={(e) => onChange(e)} />
                         </div>
                     </div>
                 </div>
@@ -126,7 +175,7 @@ const ItemProfile = memo(() => {
 
             <div className="mt-8 mb-8  py-6 rounded-lg">
                 <div className="flex">
-                    <button className="m-auto px-16 py-3 bg-blue-700 rounded-lg text-white font-semibold">CẬP NHẬT</button>
+                    <button className="m-auto px-16 py-3 bg-blue-700 rounded-lg text-white font-semibold" onClick={() => submit()}>CẬP NHẬT</button>
                 </div>
             </div>
         </>

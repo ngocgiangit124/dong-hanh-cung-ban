@@ -38,7 +38,10 @@ const WarpMenu = memo((props) => {
                     </div>
                     <div className="">
                         <div className={` overflow-auto ${state.button2 ? 'transition-h-down' : 'transition-h-up'}`}>
-                            {login ? <DropMenu setClickMenu={state} /> : <DropLogin onClose={props.setState2} onToggleModal={props.onToggleModal} />}
+                            {
+                                login ? <DropMenu setClickMenu={state} />
+                                    : <DropLogin onClose={props.setState2} onOpen={props.onOpen} type={props.type} />
+                            }
 
                         </div>
                         <Menu />

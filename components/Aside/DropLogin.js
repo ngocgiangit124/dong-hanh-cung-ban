@@ -1,10 +1,12 @@
-import React, { memo, useState } from 'react'
+import React, { memo, useState, useRef, useEffect } from 'react'
 import ModalRegis from '../Modal/ModalRegis';
 
 const DropLogin = memo((props) => {
+    const refDropRegi = useRef(null)
+
     return (
         <>
-            <div className="py-6 px-6 bg-blue-700 relative sm:relative   md:absolute  md:right-0 md:w-ct21 md:top-0 md:mt-12 customScrollbar">
+            <div ref={refDropRegi} className="py-6 px-6 bg-blue-700 relative sm:relative   md:absolute  md:right-0 md:w-ct21 md:top-0 md:mt-12 customScrollbar">
                 <div>
                     <div className="bg-white p-3 rounded-lg flex font-semibold  justify-center leading-5 cursor-pointer xs:text-xs md:text-sm">
                         <img className="mr-2" src="../img/icon_fb.png" />
@@ -23,10 +25,14 @@ const DropLogin = memo((props) => {
                     </div>
                 </div>
                 <div className="text-white ">
-                    <div className="bg-blue-800 p-3 rounded-lg flex font-semibold  justify-center leading-5 cursor-pointer" onClick={() => { props.onToggleModal(true), props.onClose() }}>
+                    <div className="bg-blue-800 p-3 rounded-lg flex font-semibold  justify-center leading-5 cursor-pointer"
+                        onClick={() => { props.onOpen(), props.type(true), props.onClose() }}
+                    >
                         <span>ĐĂNG NHẬP </span>
                     </div>
-                    <div className="mt-4 bg-blue-800 p-3 rounded-lg flex font-semibold  justify-center leading-5 cursor-pointer" onClick={() => { props.onToggleModal(false), props.onClose() }}>
+                    <div className="mt-4 bg-blue-800 p-3 rounded-lg flex font-semibold  justify-center leading-5 cursor-pointer"
+                        onClick={() => { props.onOpen(), props.type(false), props.onClose() }}
+                    >
                         <span>ĐĂNG KÝ</span>
                     </div>
                 </div>

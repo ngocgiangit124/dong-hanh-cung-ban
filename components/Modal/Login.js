@@ -1,18 +1,28 @@
 import React, { memo, useState } from 'react';
 import * as Types from '../../store/constants/ActionType';
-
 import { useDispatch } from 'react-redux'
+import { actGetToken } from '../../store/action/login'
 const Login = memo((props) => {
     const dispatch = useDispatch()
     const [state, setState] = useState({
         email: '',
         password: ''
     })
+    const [rememberData, setRememberData] = useState(false)
+    const [showPass, setShowPass] = useState(false)
+
     const login = () => {
-        // if (state.email === "admin@123" && state.password === '123456')
-        dispatch({ type: Types.LOGIN })
-        props.onClose()
+        if (state.email === '') {
+            alert('email null')
+            return
+        }
+        if (state.password === '') {
+            alert('pass null')
+            return
+        }
+        if (dispatch(actGetToken(state, rememberData))) props.onClose()
     }
+
     return (
         <div className='m-8 flex flex-col justify-center items-center '>
             <div className="flex justify-between w-full  py-5">
@@ -28,15 +38,15 @@ const Login = memo((props) => {
                 <div className="w-full">
                     <label className="text-black font-semibold" >Mật khẩu</label>
                     <div className="relative flex justify-center items-center  w-full  h-12 rounded-lg mt-2 ">
-                        <input className=" w-full py-2 h-12 border border-gray-400 relative  px-5 rounded-lg" type="password" placeholder="Nhập mật khẩu" value={state.password} onChange={(e) => setState({ ...state, password: e.target.value })} />
-                        <img src="../img/Shape.png" className="w-6 h-4  absolute right-0 mr-4 bg-gray-100" />
+                        <input className=" w-full py-2 h-12 border border-gray-400 relative  px-5 rounded-lg" type={showPass ? 'text' : 'password'} placeholder="Nhập mật khẩu" value={state.password} onChange={(e) => setState({ ...state, password: e.target.value })} />
+                        <img src={showPass ? "../img/ShowShape.png" : "../img/Shape.png"} className="w-6 h-4  absolute right-0 mr-4 bg-gray-100 cursor-pointer" onClick={() => setShowPass(!showPass)} />
                     </div>
                     <div className="float-right my-2 cursor-pointer text-blue-600">Quên mật khẩu</div>
                 </div>
             </div>
 
             <div className="flex items-center w-full  mb-6 ">
-                <input type="checkbox" className='mr-3 w-5 h-5 rounded-xl  bg-blue-600' />
+                <input type="checkbox" className='mr-3 w-5 h-5 rounded-xl  bg-blue-600' onClick={(e) => setRememberData(e.target.checked)} />
                 <span className='font-base'>Ghi nhớ tài khoản</span>
             </div>
             <button type="text" className='bg-blue-600 text-lg rounded-lg w-64 h-12 text-white mb-8' onClick={() => login()}>Đăng nhập</button>

@@ -21,7 +21,7 @@ const DropMenu = (props) => {
                     <div className="w-12"><img src="../img/icon-shape.png" /></div>
                     <div><Link href="/"><a>XEM GẦN ĐÂY</a></Link></div>
                 </div>
-                <div className="flex items-center xs:pl-6 md:px-6 text-white leading-5 py-3 rounded hover:bg-blue-800" onClick={() => dispatch({ type: Types.LOGIN })}>
+                <div className="flex items-center xs:pl-6 md:px-6 text-white leading-5 py-3 rounded hover:bg-blue-800" onClick={() => dispatch({ type: Types.LOGOUT })}>
                     <div className="w-12"><img src="../img/icon-sign-out-alt.png" /></div>
                     <div><a>ĐĂNG XUẤT</a></div>
                 </div>

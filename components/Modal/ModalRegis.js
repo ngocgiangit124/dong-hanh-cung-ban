@@ -1,9 +1,30 @@
-import React, { memo, useState } from 'react';
+import React, { memo, useState, useEffect } from 'react';
 import Register from '../Modal/Register'
 import Login from '../Modal/Login'
 const ModalRegis = memo((props) => {
-    console.log(props.type)
     const [state, setState] = useState(!props.type)
+
+    const [state2, setState2] = useState({
+        display: false,
+        code: ''
+    })
+    const code409 = () => {
+        setState2({ display: true, text: "Email đã tồn tại!", code: 409 })
+    }
+    const code200 = () => {
+        setState2({ display: true, text: "Tạo mới thành công!", code: 200 })
+    }
+    useEffect(() => {
+        if (state2.display === true && state2.code === 200) {
+            setState(false)
+            return
+        }
+        const interval = setInterval(() => {
+            setState2({ display: false, code: '' })
+        }, 2000);
+
+        return () => clearInterval(interval);
+    }, [state2])
     return (
         <>
             <div id="myModal" className={`modal block`}>
@@ -15,6 +36,7 @@ const ModalRegis = memo((props) => {
                                 <a className={`mr-12 py-6 cursor-pointer ${state ? 'active-post' : ''}`} onClick={() => setState(!state)}>ĐĂNG KÝ</a>
                                 <a className={`py-6 cursor-pointer ${!state ? 'active-post' : ''}`} onClick={() => setState(!state)} >ĐĂNG NHẬP</a>
                             </div>
+                            {state2.display && < span className={`${state2.code === 409 ? 'text-red-500' : 'text-green-500'} italic text-lg`}>{state2.text}</span>}
                             <span className="close" onClick={() => props.onClose()}>&times;</span>
                         </div>
                         <hr />
@@ -23,7 +45,7 @@ const ModalRegis = memo((props) => {
                         {
                             state
                                 ?
-                                <Register />
+                                <Register code409={() => code409()} code200={() => code200()} />
                                 :
                                 <Login onClose={() => props.onClose()} />
                         }

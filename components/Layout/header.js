@@ -1,89 +1,19 @@
-import React, { memo, useState, useRef, useEffect } from 'react';
-import HeaderCss from '../../styles/Header.module.css'
-import Notification from '../Notification/Notification'
-import DropMenu from '../Aside/DropMenu'
-import DropLogin from '../Aside/DropLogin'
-import WarpMenu from '../Aside/WarpMenu';
-import Link from 'next/link'
-import Head from 'next/head'
-import ModalRegis from '../../components/Modal/ModalRegis'
-import { useSelector } from 'react-redux'
-import { useStateIfMounted } from 'use-state-if-mounted'
-export const Header = memo(() => {
-    const [state, setState] = useStateIfMounted({
-        button1: false,
-        button2: false,
-    })
-    const refNoti = useRef(null)
-    const refDropMenu = useRef(null)
-    const refDropRegi = useRef(null)
+import Head from 'next/head';
+import Link from 'next/link';
+import React, { memo, useState } from 'react';
+import ModalRegis from '../../components/Modal/ModalRegis';
+import HeaderCss from '../../styles/Header.module.css';
+import WarpMenu from '../../components/Aside/WarpMenu'
+import { useSelector } from 'react-redux';
+import dynamic from 'next/dynamic'
+const HeaderLogin = dynamic(() => import('./HeaderLogin'))
+const HeaderLogout = dynamic(() => import('./HeaderLogout'))
 
+const Header = memo(() => {
+    const login = useSelector(state => state.login.login)
     const [state2, setState2] = useState(false)
     const [state3, setState3] = useState(false)
-    const [state4, setState4] = useState(false)
     const [type, setType] = useState(false)
-    useEffect(() => {
-        document.addEventListener('click', (e) => handle(e))
-        return () => {
-            document.removeEventListener('click', (e) => handle()),
-                console.log('faf')
-        }
-    }, [])
-    const handle = (e) => {
-        if (!refNoti?.current?.contains(e.target) && !refDropMenu?.current?.contains(e.target) && !refDropRegi?.current?.contains(e.target)) {
-            setState({ button1: false, button2: false });
-            setState4(false);
-        }
-    }
-    const onOpenInfo = () => {
-        setState({ button1: false, button2: !state.button2 })
-
-    }
-    const onOpenNoti = () => {
-        setState({ button1: !state.button1, button2: false })
-    }
-    const login = useSelector(state => state.login.login)
-    const isLogin = (
-        <>
-            <div className=" hidden sm:hidden md:flex items-center relative z-30" onClick={() => onOpenInfo()} style={{ cursor: 'pointer' }} ref={refDropMenu}>
-                <div className="mr-4 relative" ><img className="rounded" src="../img/avatar.png" alt="logo" /></div>
-                <div className="relative">Hoàng Văn Thái</div>
-                <div className="ml-2 relative">
-                    <svg className="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-                    </svg>
-                </div>
-                {/* {state.button2 && <DropLogin />} */}
-                {state.button2 && <DropMenu />}
-            </div>
-            <div className='relative' ref={refNoti}>
-                <img className='relative z-20' style={{ cursor: 'pointer' }} src={state.button1 ? "../img/chuongActive.png" : "../img/chuong.png"} alt="logo" onClick={() => onOpenNoti()} />
-                {
-                    state.button1 &&
-                    <Notification />
-                }
-            </div>
-        </>
-    )
-
-    const isRegister = (
-        <>
-            <div></div>
-            <div className=" hidden sm:hidden md:flex items-center relative " >
-                <div className="sm:hidden md:flex items-center relative cursor-pointer" onClick={() => setState4(!state4)} ref={refDropRegi}>
-                    <div className="mr-4 relative" ><img className="rounded" src="../img/avatar.png" alt="logo" /></div>
-                    <div className="relative">Đăng nhập</div>
-                    <div className="ml-2 relative">
-                        <svg className="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                            <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-                        </svg>
-                    </div>
-                </div>
-
-                {state4 && <DropLogin onClose={() => setState({ ...state, button2: false })} onToggleModal={(x) => { setState3(true), setType(x) }} />}
-            </div>
-        </>
-    )
 
     return (
         <>
@@ -113,9 +43,11 @@ export const Header = memo(() => {
                                 <button className={`mr-4 outline-nonenone`}><img className="w-8 p-1" src="../img/icon-search.png" /></button>
                             </div>
                             {
-                                login ? isLogin : isRegister
+                                login ? <HeaderLogin /> :
+                                    <HeaderLogout onOpen={() => setState3(true)} type={(type) => setType(type)} />
+
                             }
-                            <div className="xs:block md:hidden ml-4 text-gray-500 cursor-pointer" onClick={() => setState2(!state2)}>
+                            <div className="block md:hidden ml-4 text-gray-500 cursor-pointer" onClick={() => setState2(!state2)}>
                                 <svg className="w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                                 </svg>
@@ -124,10 +56,8 @@ export const Header = memo(() => {
                     </div >
                 </div>
             </div>
-            <WarpMenu setClick={state2} setState2={() => setState2(!state2)} setClick2={() => setState2(false)} onClose={() => setState({ ...state, button2: false })} onToggleModal={(x) => { setState3(true), setType(x) }} />
+            <WarpMenu setClick={state2} setState2={() => setState2(!state2)} setClick2={() => setState2(false)} onClose={() => setState({ ...state, button2: false })} onOpen={() => setState3(true)} type={(type) => setType(type)} />
         </>
     )
 });
-
-
-
+export default Header
