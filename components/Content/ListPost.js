@@ -13,6 +13,9 @@ const ListPost = memo(() => {
     const data = useSelector(state => state.post.data)
 
     useEffect(() => {
+        if (state.page_next == 1) {
+            window.scrollTo(0, 0);
+        }
         dispatch(actGetListPost(state.page_next));
     }, [state.page_next]);
 
