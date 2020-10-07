@@ -13,7 +13,6 @@ const ListPost = memo(() => {
     const data = useSelector(state => state.post.data)
 
     useEffect(() => {
-        console.log('a')
         dispatch(actGetListPost(state.page_next));
     }, [state.page_next]);
 
