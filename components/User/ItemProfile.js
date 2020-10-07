@@ -1,6 +1,6 @@
 import React, { memo, useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { actEditProfile } from '../../store/action/profile.js'
+import { actGetListPost } from '../../store/action/profile.js'
 const ItemProfile = memo(() => {
     const dispatch = useDispatch()
     const [state, setState] = useState({
@@ -29,7 +29,6 @@ const ItemProfile = memo(() => {
         })
     }
     const getBase64Img = (data) => {
-
         try {
             var reader = new FileReader();
             reader.readAsDataURL(data);
