@@ -13,11 +13,8 @@ export const actGetListPost = (page) => {
         return HTTP(`items/posts?limit=1&page=${page ? page : 1}&meta=*&sort=-id&fields=*,image_thumbnail.data,userid.*,userid.avatar.data`, 'GET', null, header).then(res => {
             console.log(page, res.data.meta.page)
             if (res?.status === 200) {
-                if (page === res.data.meta.page) {
-                    dispatch({ type: Types.GET_POST, data: { data: res.data.data, page: res.data.meta.page } })
-                } else {
-
-                }
+                var has_more = res.data.meta.page_count > res.data.meta.page ? true : false;
+                dispatch({ type: Types.GET_POST, data: { data: res.data.data, page: res.data.meta.page, has_more: has_more } })
             }
         });
     }

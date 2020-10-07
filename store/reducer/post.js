@@ -5,14 +5,17 @@ var initialState = {
     data: {}
 };
 
-const login = (state = initialState, action) => {
+const post = (state = initialState, action) => {
 
     switch (action.type) {
         case Types.GET_POST:
             state.data = action.data
             return { ...state };
+        case Types.CLEAR_POST:
+            state.data = {}
+            return { ...state };
         default: return { ...state };
     }
 }
 
-export default login;
+export default post;

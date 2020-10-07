@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 
-import Head from 'next/head'
 import { Container } from '../../components/main'
 import dynamic from 'next/dynamic'
-const Header = dynamic(() => import('../components/Layout/header'), { ssr: false })
+const Header = dynamic(() => import('../../components/Layout/header'), { ssr: false })
 import Menu from '../../components/Aside/Menu'
 import NamePage from '../../components/Content/NamePage'
 import CreatePost from '../../components/Create/Post'

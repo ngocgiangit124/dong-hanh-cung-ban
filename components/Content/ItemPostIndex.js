@@ -16,8 +16,8 @@ const IteamPost = memo((props) => {
     });
     const [stateUser, setStateUser] = useState({
         urlAv: props.item.userid ? (props.item.userid.avatar ? props.item.userid.avatar.data.thumbnails[1].url : '') : '',
-        altAv: props.item.userid ? props.item.userid.name : '',
-        nameAV: props.item.userid ? props.item.userid.name : '',
+        altAv: props.item.userid ? props.item.userid.first_name : '',
+        nameAV: props.item.userid ? props.item.userid.first_name : '',
     });
     const [state, setState] = useState({
         comment: 'hidden',
