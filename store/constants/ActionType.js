@@ -4,6 +4,10 @@ export const REGISTER_OK = 'REGISTER_OK';
 export const LOGIN_AVATAR = 'LOGIN_AVATAR';
 export const LOGIN_AVATAR_UPDATE = 'LOGIN_AVATAR_UPDATE';
 export const EDIT_PROFILE = 'EDIT_PROFILE';
+export const GET_POST = 'GET_POST';
+export const CLEAR_POST = 'CLEAR_POST';
+export const POST_POST = 'POST_POST';
+export const GET_CATEGORIES = 'GET_CATEGORIES';
 
 
 

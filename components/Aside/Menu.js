@@ -19,7 +19,7 @@ const Menu = memo(() => {
                         </div>
                     </a>
                 </Link>
-                <Link href="/">
+                <Link href="/posts">
                     <a>
                         <div className='flex items-center pb-2'>
                             <div className='w-16'>

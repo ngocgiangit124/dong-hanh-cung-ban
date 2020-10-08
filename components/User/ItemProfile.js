@@ -2,6 +2,7 @@ import React, { memo, useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { actEditProfile, actAddAvatar } from '../../store/action/profile.js'
 import Router from 'next/router';
+// import { actGetListPost } from '../../store/action/profile.js'
 const ItemProfile = memo(() => {
     const dispatch = useDispatch()
     const [state, setState] = useState({

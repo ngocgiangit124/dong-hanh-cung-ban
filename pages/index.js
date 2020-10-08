@@ -20,32 +20,33 @@ import ColumRight from '../components/Layout/ColumRight'
 export default function Home() {
   return (
     <>
-      <Header />
-      <Container>
-        <ColumLeft>
-          <QaHeader />
-          <AddPost />
-          <ItemPost />
-          <ItemPost />
-          <ItemPost />
-          <div className="mt-8 ">
-            <img className="m-auto" src="../img/waiting.png" />
-          </div>
-          <div className="xs:block md:hidden">
+      <div id="too">
+        <Header />
+        <Container>
+          <ColumLeft>
+            <QaHeader />
+            <AddPost />
+            <ItemPost />
+            <ItemPost />
+            <ItemPost />
+            <div className="mt-8 ">
+              <img className="m-auto" src="../img/waiting.png" />
+            </div>
+            <div className="xs:block md:hidden">
+              <Bottom />
+            </div>
+          </ColumLeft>
+          <ColumRight>
+            <Menu />
+            <img src='../img/Aside1.png' className=' mt-5 ' />
+            <img src='../img/Aside2.png' className=' mt-5 ' />
+            <HotNews />
+            <HasTag />
             <Bottom />
-          </div>
-        </ColumLeft>
-        <ColumRight>
-          <Menu />
-          <img src='../img/Aside1.png' className=' mt-5 ' />
-          <img src='../img/Aside2.png' className=' mt-5 ' />
-          <HotNews />
-          <HasTag />
-          <Bottom />
-        </ColumRight>
-      </Container>
-      {/* <Comment /> */}
-
+          </ColumRight>
+        </Container>
+        {/* <Comment /> */}
+      </div>
     </>
   )
 }
