@@ -22,7 +22,7 @@ export const actGetToken = (data, remember) => {
 
                 async function fetch() {
                     let data = await dispatch(actGetUser(res.data.data.user.id, res.data.data.token, remember))
-                    await dispatch(actGetAvatar(data.avatar))
+                    if (data.avatar) await dispatch(actGetAvatar(data.avatar))
                     return true
                 }
                 return fetch()
@@ -34,7 +34,6 @@ export const actGetToken = (data, remember) => {
 export const actGetAvatar = (id) => {
     return dispatch => {
         return HTTP(`files/${id}`, 'GET', null, null).then(res => {
-            console.log(res)
             if (res?.status === 200) {
                 dispatch({ type: Types.LOGIN_AVATAR, data: res.data.data.data.thumbnails[0].url, data2: res.data.data.data })
                 if (Cookies.get('UserData') && Cookies.get('UserData') !== undefined) {
@@ -57,8 +56,6 @@ export const actGetUser = (id, token, remember) => {
     return dispatch => {
         return HTTP(`users/${id}`, 'GET', null, header).then(res => {
             if (res?.status === 200) {
-                console.log(res)
-                console.log(remember)
                 dispatch({ type: Types.LOGIN, data: res.data.data })
                 if (remember) {
                     Cookies.remove('UserData')

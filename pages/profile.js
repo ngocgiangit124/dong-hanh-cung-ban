@@ -6,7 +6,8 @@ const Header = dynamic(() => import('../components/Layout/header'), { ssr: false
 import Menu from '../components/Aside/Menu'
 import NamePage from '../components/Content/NamePage'
 import IteamPost from '../components/Content/ItemPost'
-import ItemProfile from '../components/User/ItemProfile'
+const ItemProfile = dynamic(() => import('../components/User/ItemProfile'), { ssr: false })
+// import ItemProfile from '../components/User/ItemProfile'
 import ColumLeft from '../components/Layout/ColumLeft'
 import ColumRight from '../components/Layout/ColumRight'
 import Bottom from '../components/Aside/Bottom'

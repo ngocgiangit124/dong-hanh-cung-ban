@@ -4,7 +4,7 @@ import { useStateIfMounted } from 'use-state-if-mounted'
 import DropMenu from '../Aside/DropMenu'
 import { useSelector } from 'react-redux'
 
-const HeaderLogin = memo((props) => {
+const HeaderLogin = (props) => {
     const [state, setState] = useStateIfMounted({
         button1: false,
         button2: false,
@@ -30,7 +30,6 @@ const HeaderLogin = memo((props) => {
         }
     }
     const data = useSelector(state => state.login.data)
-    console.log(data);
 
     return (
         <div className="w-full flex justify-around">
@@ -57,6 +56,6 @@ const HeaderLogin = memo((props) => {
             </div>
         </div>
     );
-});
+};
 
 export default HeaderLogin;

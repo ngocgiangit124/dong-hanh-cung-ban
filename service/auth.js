@@ -7,7 +7,7 @@ export const authFull = () => {
         'Content-Type': 'application/json'
     }
 }
-export const authFUser = (token) => {
+export const authUser = (token) => {
     return {
         'Authorization': `bearer ${token}`,
         'Accept': 'application/json',

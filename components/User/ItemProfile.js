@@ -1,6 +1,7 @@
 import React, { memo, useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { actEditProfile } from '../../store/action/profile.js'
+import { actEditProfile, actAddAvatar } from '../../store/action/profile.js'
+import Router from 'next/router';
 const ItemProfile = memo(() => {
     const dispatch = useDispatch()
     const [state, setState] = useState({
@@ -8,12 +9,15 @@ const ItemProfile = memo(() => {
         email: '',
         phone: '',
         img: '',
-        img_default: ''
+        img_default: '',
+        name_img: '',
+        check: '0'
     })
     const data = useSelector(state => state.login.data)
+
     useEffect(() => {
         if (data.id && data.avatar_img) {
-            setState({ ...state, name: data.first_name, email: data.email, phone: data.title, img: data.avatarFull_img.thumbnails[4].url, img_default: data.avatarFull_img.thumbnails[4].url })
+            setState({ ...state, name: data.first_name, email: data.email, phone: data.title, img: data.avatarFull_img.thumbnails[4].url, img_default: data.avatarFull_img.thumbnails[4].url, check: new Date().getTime() })
         } else if (data.id && !data.avatar_img) {
             setState({ ...state, name: data.first_name, email: data.email, phone: data.title })
         }
@@ -29,24 +33,20 @@ const ItemProfile = memo(() => {
         })
     }
     const getBase64Img = (data) => {
-
         try {
             var reader = new FileReader();
-            reader.readAsDataURL(data);
+            reader.readAsDataURL(data)
             reader.onloadend = function () {
                 var base64data = reader.result;
-                // console.log(base64data);
-                setState({ ...state, img: base64data })
+                setState({ ...state, img: base64data, name_img: data.name })
                 return;
             }
         } catch (error) {
             alert('Loi upload anh')
         }
-
     }
-    console.log(state)
     const submit = () => {
-        dispatch(actEditProfile(data.avatar, data.token, data.id, state.img_default, state.img, { first_name: state.name, email: state.email, title: state.phone }))
+        dispatch(actEditProfile(state.name_img, data.avatar, data.token, data.id, state.img_default, state.img, { first_name: state.name, email: state.email, title: state.phone }))
     }
     return (
         <>
@@ -58,7 +58,7 @@ const ItemProfile = memo(() => {
                     <div className="relative">
                         <div className="m-auto h-40 w-40 bg-gray-300 rounded-full flex items-center content-center  relative">
                             {state.img === '' ? <img className="m-auto rounded avatar" src="../img/icon_plus.png" /> :
-                                <img className=" h-full w-full rounded avatar-full" src={state.img} />}
+                                <img className=" h-full w-full rounded avatar-full" src={`${state.img}`} />}
 
                         </div>
                         <div className="absolute flex w-full top-0">
