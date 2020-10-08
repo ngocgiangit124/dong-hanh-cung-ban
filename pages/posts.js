@@ -4,7 +4,9 @@ import ColumLeft from '../components/Layout/ColumLeft';
 import ColumRight from '../components/Layout/ColumRight';
 import NamePage from '../components/Content/NamePage';
 import Menu from '../components/Aside/Menu'
-import ListPost from '../components/Content/ListPost';
+// import ListPost from '../components/Content/ListPost';
+import dynamic from 'next/dynamic'
+const ListPost = dynamic(() => import('../components/Content/ListPost'), { ssr: false })
 const test3 = memo(() => {
     return (
         <>

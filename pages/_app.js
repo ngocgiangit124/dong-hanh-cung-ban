@@ -10,7 +10,6 @@ function MyApp({ Component, pageProps }) {
         <Provider store={store}>
             <Component {...pageProps} />
         </Provider>
-
     )
 }
 export default MyApp

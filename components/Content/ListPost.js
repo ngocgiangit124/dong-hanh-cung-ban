@@ -7,7 +7,9 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import * as Types from '../../store/constants/ActionType'
 import { useBeforeunload } from 'react-beforeunload';
 const ListPost = memo(() => {
+    useEffect(() => {
 
+    }, []);
     const dispatch = useDispatch()
     const [state, setState] = useState({
         list_posts: [],
@@ -23,15 +25,10 @@ const ListPost = memo(() => {
             dispatch(actGetListPost(state.page_next));
         }
     }, [state.page_next]);
-    function uptoTop() {
-        window.scrollTo(0, 0);
-    }
+
     useEffect(() => {
         if (data.data && data.data !== undefined) {
             setState({ ...state, list_posts: [...state.list_posts, ...data.data], page_next: data.page, checkloading: true, has_more: data.has_more })
-            if (data.page == 1) {
-                window.scrollTo(0, 0);
-            }
         }
         return () => dispatch({ type: Types.CLEAR_POST })
     }, [data.data]);

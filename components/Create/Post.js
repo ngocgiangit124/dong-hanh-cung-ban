@@ -1,12 +1,23 @@
-import React, { memo, useState } from 'react'
+import React, { memo, useState, useEffect } from 'react'
 import Editer from './Editer'
 import Hastag from './Hastag'
+import { actGetListCategory } from '../../get/category/listcategory'
+import { useSelector, useDispatch } from 'react-redux'
 
 const CreatePost = memo(() => {
+    const dispatch = useDispatch()
     const [state, setState] = useState({
         tintuc: true,
         video: false,
+        categories: {},
     })
+    useEffect(() => {
+        dispatch(actGetListCategory());
+    }, []);
+    const data_category = useSelector(state => state.category.data);
+    useEffect(() => {
+        setState({ ...state, categories: data_category })
+    }, [data_category])
     return (
         <>
             <div className="py-4 xs:px-3 md:px-8 text-lg bg-white rounded-lg font-semibold text-gray-500 leading-6 mt-4">
@@ -35,15 +46,13 @@ const CreatePost = memo(() => {
                         <Editer />
                     </div>
                 </div>
-                {/*  */}
                 <div className="mt-6">
                     <div className=""><label className="text-black">Chọn chuyên mục</label><span className="text-red-500"> *</span></div>
                     <div className="box-border mt-2 ">
                         <select className="px-6 w-full border border-gray-400 h-12 rounded-lg" type="text" placeholder="Tiêu đề" >
-                            <option>Giang</option>\
-                            <option>Giang</option>
-                            <option>Giang</option>
-                            <option>Giang</option>
+                            {state.categories.length > 0 && data_category.map((item, index) => {
+                                return <option value={item.id} key={index}>{item.name}</option>
+                            })}
                         </select>
                     </div>
                 </div>
@@ -51,7 +60,6 @@ const CreatePost = memo(() => {
                 <div className="mt-6">
                     <div className=""><label className="text-black">Tag</label><span className="text-red-500"> *</span></div>
                     <div className="box-border mt-2">
-
                         <Hastag />
                     </div>
                 </div>
@@ -89,10 +97,9 @@ const CreatePost = memo(() => {
                     <div className=""><label className="text-black">Chọn chuyên mục</label><span className="text-red-500"> *</span></div>
                     <div className="box-border mt-2 ">
                         <select className="px-6 w-full border border-gray-400 h-12 rounded-lg" type="text" placeholder="Tiêu đề" >
-                            <option>Review</option>\
-                            <option>Giang</option>
-                            <option>Giang</option>
-                            <option>Giang</option>
+                            {state.categories.length > 0 && data_category.map((item, index) => {
+                                return <option value={item.id} key={index}>{item.name}</option>
+                            })}
                         </select>
                     </div>
                 </div>

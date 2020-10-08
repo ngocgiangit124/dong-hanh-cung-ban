@@ -14,7 +14,11 @@ const Header = memo(() => {
     const [state2, setState2] = useState(false)
     const [state3, setState3] = useState(false)
     const [type, setType] = useState(false)
-
+    let canControlScrollRestoration = 'scrollRestoration' in window.history
+    if (canControlScrollRestoration); {
+        // Back off, browser, I got this...
+        window.history.scrollRestoration = 'manual';
+    }
     return (
         <>
             <Head>
